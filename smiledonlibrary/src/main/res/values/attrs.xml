@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="NumberDecimalEditText">
+        <attr name="beforePointLength" format="integer"/>
+        <attr name="afterPointLength" format="integer"/>
+    </declare-styleable>
+
+    <attr name="rightPadding" format="dimension"/>
+
+    <declare-styleable name="SlidingMenuView">
+        <attr name="rightPadding"/>
+    </declare-styleable>
+
+</resources>

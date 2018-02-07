@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <!--android:checkableBehavior="single"  单选-->
+    <!--group 加上id就有分割线了-->
+    <group android:id="@+id/one_group">
+        <item
+            android:id="@+id/nav_item_home"
+            android:icon="@drawable/icon_nav_home"
+            android:title="@string/index" />
+        <item
+            android:id="@+id/nav_item_run"
+            android:icon="@drawable/icon_nav_run"
+            android:title="@string/run" />
+        <item
+            android:id="@+id/nav_item_mine"
+            android:icon="@drawable/icon_nav_mine"
+            android:title="@string/mine" />
+
+    </group>
+
+    <group android:id="@+id/two_group">
+        <item
+            android:id="@+id/nav_item_about"
+            android:icon="@drawable/icon_nav_about"
+            android:title="@string/about" />
+    </group>
+
+</menu>

@@ -1,0 +1,297 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/background_layout</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/txt_black</item>
+        <item name="android:navigationBarColor">@color/white</item>
+    </style>>
+
+    <!-- 透明背景 -->
+    <style name="dialog_fragment_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:background">@color/transparent</item>
+
+        <!--是否允许背景变暗-->
+        <!--<item name="android:backgroundDimEnabled">false</item>-->
+    </style>
+
+    <!-- 透明背景 -->
+
+    <style name="dialog_style" parent="@android:style/Theme.Dialog">
+        <!--Dialog的windowFrame框为无-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否半透明-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--是否显示title-->
+        <item name="android:windowNoTitle">true</item>
+        <!--设置dialog的背景-->
+        <item name="android:background">@android:color/transparent</item>
+        <!--显示区域背景是否透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--就是用来控制灰度的值，当为1时，界面除了我们的dialog内容是高亮显示的，dialog以外的区域是黑色的，完全看不到其他内容，系统的默认值是0.5-->
+        <item name="android:backgroundDimAmount">0.5</item>
+        <!--显示区域以外是否使用黑色半透明背景-->
+        <item name="android:backgroundDimEnabled">true</item>
+
+    </style>
+
+    <!--标题栏图标样式-->
+    <style name="title_icon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:paddingLeft">21dp</item>
+        <item name="android:paddingRight">21dp</item>
+    </style>
+
+    <!--横向分割线-->
+    <style name="horizontal_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_width</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
+
+    <!--纵向分割线-->
+    <style name="vertical_line">
+        <item name="android:layout_width">@dimen/line_width</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
+
+
+    <!--TextView 单行显示不完省略号  （EditText 需要加上input属性）-->
+    <style name="singleLine_ellipsize_style">
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+
+    <!--自适应文本样式-->
+    <style name="txt_wrap_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <!--大文本样式-->
+    <style name="txt_large_style" parent="txt_wrap_style">
+        <item name="android:textSize">@dimen/large_txt_size</item>
+    </style>
+
+    <!--黑色大文本样式-->
+    <style name="txt_black_large_style" parent="txt_large_style">
+        <item name="android:textColor">@color/txt_black</item>
+    </style>
+
+    <!--灰色大文本样式-->
+    <style name="txt_gray_large_style" parent="txt_large_style">
+        <item name="android:textColor">@color/txt_gray</item>
+    </style>
+
+    <!--标题中黑色粗体大文本样式-->
+    <style name="txt_black_large_bold_style" parent="txt_black_large_style">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--黑色大文本单行显示样式-->
+    <style name="txt_black_large_singleLine_style" parent="txt_black_large_style">
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!--标题中灰色大文本加粗单行样式-->
+    <style name="txt_gray_large_bold_singleLine_style" parent="txt_gray_large_style">
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--小文本样式-->
+    <style name="txt_small_style" parent="txt_wrap_style">
+        <item name="android:textSize">@dimen/normal_txt_size</item>
+    </style>
+
+    <!--黑色小文本样式-->
+    <style name="txt_black_small_style" parent="txt_small_style">
+        <item name="android:textColor">@color/txt_black</item>
+    </style>
+
+    <!--灰色小文本样式-->
+    <style name="txt_gray_small_style" parent="txt_small_style">
+        <item name="android:textColor">@color/txt_gray</item>
+    </style>
+
+    <!--标题中灰色小文本加粗样式-->
+    <style name="txt_gray_small_bold_style" parent="txt_gray_small_style">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--标题中灰色小文本单行样式-->
+    <style name="txt_gray_small_singleLine_style" parent="txt_gray_small_style">
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!--标题中灰色小文本加粗单行样式-->
+    <style name="txt_gray_small_bold_singleLine_style" parent="txt_gray_small_singleLine_style">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!--默认输入框样式-->
+    <style name="edit_style" parent="txt_black_large_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/edit_normal_height</item>
+        <item name="android:inputType">text</item>
+        <item name="android:lines">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/xx_small_margin</item>
+        <item name="android:paddingRight">@dimen/xx_small_margin</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--结算页面 顶部title切换结算方式-->
+    <style name="pay_way_title_radio_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:textSize">@dimen/normal_txt_size</item>
+        <item name="android:textColor">@color/txt_gray</item>
+        <item name="android:drawablePadding">@dimen/small_padding</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/background_radio_line</item>
+    </style>
+
+
+
+    <!--超大字体 单行加粗样式 如 实收金额之类 -->
+    <style name="txt_xx_large_size_style" parent="singleLine_ellipsize_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/xx_large_txt_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--蓝底白字 按钮样式-->
+    <style name="blue_btn_style">
+        <item name="android:layout_height">@dimen/title_height</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/blue</item>
+        <item name="android:textSize">@dimen/large_txt_size</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--蓝底白字 wrap_content 按钮样式-->
+    <style name="wrap_blue_btn_style" parent="blue_btn_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/x_large_padding</item>
+        <item name="android:paddingRight">@dimen/x_large_padding</item>
+    </style>
+
+    <!--底部蓝底白字 按钮样式-->
+    <style name="bottom_blue_btn_style" parent="blue_btn_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/x_large_margin</item>
+        <item name="android:layout_marginBottom">@dimen/x_large_margin</item>
+        <item name="android:layout_marginLeft">@dimen/xx_large_margin</item>
+        <item name="android:layout_marginRight">@dimen/xx_large_margin</item>
+    </style>
+
+    <!--右边面板返回图标样式-->
+    <style name="right_window_txt_back_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@color/txt_gray</item>
+        <item name="android:textSize">@dimen/large_txt_size</item>
+        <item name="android:padding">@dimen/small_padding</item>
+    </style>
+
+    <!--功能列表 item样式-->
+    <style name="function_item_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">60dp</item>
+        <item name="android:paddingRight">60dp</item>
+        <item name="android:paddingTop">@dimen/xx_large_padding</item>
+        <item name="android:paddingBottom">@dimen/xx_large_padding</item>
+        <item name="android:clipChildren">false</item>
+    </style>
+
+    <!-- DialogFragment 进出动画 -->
+    <style name="dialog_fragment_anim_style">
+        <item name="android:windowEnterAnimation">@anim/right_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/right_out_anim</item>
+    </style>
+
+    <!-- Dialog 进出动画 -->
+    <style name="dialog_anim_style">
+        <item name="android:windowEnterAnimation">@anim/top_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/bottom_out_anim</item>
+    </style>
+
+    <!-- 向下伸展 向上收拢动画  -->
+    <style name="pop_anim_style">
+        <item name="android:windowEnterAnimation">@anim/pop_down_anim</item>
+        <item name="android:windowExitAnimation">@anim/pop_up_anim</item>
+    </style>
+
+
+
+    <!--单个小图标的点击样式-->
+    <style name="icon_operate_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/small_padding</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+
+
+    <!--所有的ListView列表样式-->
+    <style name="lv_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:divider">@color/line_color</item>
+        <item name="android:dividerHeight">@dimen/line_width</item>
+        <item name="android:layerType">software</item>
+        <item name="android:background">@color/white</item>
+
+        <item name="android:listSelector">@color/transparent</item>
+        <item name="android:cacheColorHint">@color/transparent</item>
+
+        <!--ScrollBar自定义-->
+        <!-- <item name="android:scrollbarThumbVertical">@drawable/background_scroll_bar</item>
+         <item name="android:scrollbarSize">5dp</item>
+         <item name="android:scrollbarStyle">insideOverlay</item>
+         <item name="android:scrollbars">vertical</item>
+         <item name="android:fadeScrollbars">false</item>
+         <item name="android:scrollbarFadeDuration">0</item>-->
+    </style>
+
+</resources>

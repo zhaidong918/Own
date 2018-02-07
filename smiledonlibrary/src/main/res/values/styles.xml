@@ -1,0 +1,16 @@
+<resources>
+
+
+      <!-- 自定义loading dialog -->
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>   <!-- 边框 -->
+        <item name="android:windowNoTitle">true</item>  <!-- 标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowIsFloating">true</item>   <!-- 悬浮 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- <item name="android:backgroundDimEnabled">false</item>模糊 -->
+    </style>
+    
+    
+</resources>

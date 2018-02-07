@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="100dp"
+          android:gravity="center"
+          android:background="@color/background_layout"
+          android:orientation="vertical">
+
+         <ImageView
+             android:id="@+id/item_iv"
+             android:layout_width="150dp"
+             android:layout_height="100dp"
+             android:scaleType="fitXY"
+             android:src="@drawable/weather_hail" />
+
+      </LinearLayout>
+
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="100dp"
+          android:background="@drawable/gradient"/>
+
+   </FrameLayout>
+
+</layout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+    <dbname value = "own.db"/>
+
+    <version value="1" />
+
+
+    <list>
+        <mapping class="com.smiledon.own.service.model.Latlng"></mapping>
+    </list>
+
+
+
+</litepal>

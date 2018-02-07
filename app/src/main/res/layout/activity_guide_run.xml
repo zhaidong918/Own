@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.smiledon.own.widgets.CircleLayout
+                android:id="@+id/back_layout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="@dimen/small_padding"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@drawable/primary_circle">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_white_back"/>
+
+            </com.smiledon.own.widgets.CircleLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"/>
+
+            <TextView
+                android:id="@+id/record_tv"
+                style="@style/txt_gray_small_style"
+                android:layout_height="30dp"
+                android:background="@drawable/background_left_gray"
+                android:paddingLeft="@dimen/large_padding"
+                android:paddingRight="@dimen/large_padding"
+                android:textSize="@dimen/small_txt_size"
+                android:text="@string/run_record" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line"
+            style="@style/horizontal_line"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"/>
+
+        <RelativeLayout
+            android:id="@+id/distance_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/line">
+
+            <TextView
+                android:id="@+id/run_distance_tv"
+                style="@style/txt_black_large_bold_style"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerInParent="true"
+                tools:text="0.00"
+                android:textSize="60sp"/>
+
+            <TextView
+                android:layout_toRightOf="@id/run_distance_tv"
+                android:layout_alignBaseline="@id/run_distance_tv"
+                style="@style/txt_gray_large_style"
+                android:text="公里"
+                android:layout_marginLeft="@dimen/normal_margin"
+                android:textSize="@dimen/large_txt_size"/>
+
+        </RelativeLayout>
+
+
+        <com.smiledon.own.widgets.CircleLayout
+            android:id="@+id/layout"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:layout_below="@id/line"
+            android:layout_centerInParent="true"
+            android:background="@drawable/primary_circle">
+
+            <TextView
+                android:id="@+id/tv"
+                style="@style/txt_black_large_bold_style"
+                android:textColor="@color/white"
+                android:text="GO!"
+                android:textSize="45sp"/>
+
+        </com.smiledon.own.widgets.CircleLayout>
+
+    </RelativeLayout>
+</layout>

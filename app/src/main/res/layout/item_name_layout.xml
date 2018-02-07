@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:background="@color/white">
+
+      <View
+          style="@style/horizontal_line"
+          android:visibility="gone"/>
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/weather_hail"
+          android:visibility="gone"/>
+
+      <TextView
+          android:id="@+id/item_tv"
+          style="@style/txt_black_large_style"
+          android:layout_marginLeft="@dimen/large_margin"
+          android:padding="@dimen/small_padding"
+          tools:text="北京"/>
+
+   </LinearLayout>
+
+
+
+
+</layout>

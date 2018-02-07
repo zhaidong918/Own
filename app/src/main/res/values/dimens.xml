@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--圆角半径-->
+    <dimen name="small_radius">3dp</dimen>
+    <dimen name="default_radius">6dp</dimen>
+
+    <!--各种内边距-->
+    <dimen name="xx_small_padding">5dp</dimen>
+    <dimen name="x_small_padding">8dp</dimen>
+    <dimen name="small_padding">10dp</dimen>
+    <dimen name="normal_padding">15dp</dimen>
+    <dimen name="large_padding">20dp</dimen>
+    <dimen name="x_large_padding">24dp</dimen>
+    <dimen name="xx_large_padding">30dp</dimen>
+
+    <!--各种外边距-->
+    <dimen name="xx_small_margin">5dp</dimen>
+    <dimen name="x_small_margin">8dp</dimen>
+    <dimen name="small_margin">10dp</dimen>
+    <dimen name="normal_margin">15dp</dimen>
+    <dimen name="large_margin">20dp</dimen>
+    <dimen name="x_large_margin">24dp</dimen>
+    <dimen name="xx_large_margin">30dp</dimen>
+
+
+    <!--描边宽度-->
+    <dimen name="stroke_width">1dp</dimen>
+
+    <!--字体大小-->
+    <dimen name="x_small_txt_size">12sp</dimen>
+    <dimen name="small_txt_size">14sp</dimen>
+    <dimen name="normal_txt_size">16sp</dimen>
+    <dimen name="large_txt_size">18sp</dimen>
+    <dimen name="x_large_txt_size">20sp</dimen>
+    <dimen name="xx_large_txt_size">24sp</dimen>
+
+    <!--分割线宽度-->
+    <dimen name="line_width">1dp</dimen>
+    <dimen name="line_2_width">2dp</dimen>
+
+    <!--标题高度-->
+    <dimen name="title_height">54dp</dimen>
+
+    <!--输入框默认高度-->
+    <dimen name="edit_normal_height">54dp</dimen>
+
+
+
+</resources>

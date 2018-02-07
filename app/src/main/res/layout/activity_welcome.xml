@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_flash">
+
+        <LinearLayout
+            android:id="@+id/jump_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/x_small_padding"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/x_large_padding"
+            android:background="@drawable/background_gray">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_txt_size"
+                android:text="跳过："
+                android:textColor="@color/txt_gray"/>
+
+            <TextView
+                android:id="@+id/count_down_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_gray"
+                android:textSize="@dimen/small_txt_size"
+                tools:text="1s" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="black_overlay">#66000000</color>
+    <color name="background_activity">#dddee1</color>
+    <color name="background_layout_disable">#60000000</color>
+
+    <color name="txt_gray">#80848f</color>
+    <color name="txt_black">#495060</color>
+
+    <color name="white">#ffffff</color>
+    <color name="blue">#20a1ff</color>
+
+    <color name="blue_alpha_15">#1520a1ff</color>
+    <color name="blue_alpha_95">#9520a1ff</color>
+    <color name="blue_pressed">#1d8be0</color>
+    <color name="green">#47cb89</color>
+    <color name="red">#ff4949</color>
+    <color name="orange">#ff9900</color>
+
+    <color name="orange_alpha_80">#80ff9900</color>
+
+    <color name="transparent">@android:color/transparent</color>
+
+    <!--标题背景-->
+    <color name="background_title">#f4f4f5</color>
+    <color name="background_title_bar">#495060</color>
+    <color name="background_title_bar_home">#383F4F</color>
+    <!--<color name="background_title_bar_home">#20495060</color>-->
+
+    <!--部分布局的浅灰色背景-->
+    <color name="background_layout">#f4f4f5</color>
+
+    <!--描边-->
+    <color name="stroke_color">#dddee1</color>
+    <!--分割线-->
+    <color name="line_color">#dddee1</color>
+
+    <color name="pressed_color">#dddee1</color>
+    <!--字体禁用-->
+    <color name="disable_color">#bbbec4</color>
+
+    <!--背景禁用-->
+    <color name="disable_bg_color">#e9eaec</color>
+
+    <!--hint 颜色-->
+    <color name="hint_color">#bbbec4</color>
+
+    <!--应收黄色按钮-->
+    <color name="yellow_btn_top_color">#f7c82b</color>
+    <color name="yellow_btn_bottom_color">#f7bf24</color>
+    <!--结账蓝色按钮-->
+    <color name="blue_btn_pressed_ripple">#1d8be0</color>
+    <color name="blue_btn_pressed_color">#59b7ff</color>
+
+    <!--挂单按钮背景色-->
+    <color name="hand_over_btn">#e9eaec</color>
+
+    <!--自定义键盘-->
+    <color name="key_board_pressed_ripple">#dddee1</color>
+    <color name="key_board_pressed_color">#f8f8f9</color>
+
+</resources>

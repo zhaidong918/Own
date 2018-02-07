@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_layout">
+
+        <LinearLayout
+            android:id="@+id/login_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="@dimen/xx_large_margin"
+            android:gravity="center_horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/background_white">
+
+            <TextView
+                style="@style/txt_gray_small_style"
+                android:layout_gravity="left"
+                android:text="By:Chak East "/>
+
+            <RelativeLayout
+                android:id="@+id/account_layout"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_height="@dimen/title_height">
+
+                <ImageView
+                    android:id="@+id/acc_left_iv"
+                    android:layout_width="@dimen/title_height"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:scaleType="center"
+                    android:src="@drawable/login_icon_account"/>
+
+                <ImageView
+                    android:id="@+id/acc_right_iv"
+                    android:layout_width="@dimen/title_height"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:onClick="showPastLoginAccount"
+                    android:scaleType="center"
+                    android:src="@drawable/arrow_up_selector" />
+
+                <EditText
+                    android:id="@+id/account_et"
+                    style="@style/edit_style"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/acc_left_iv"
+                    android:hint="@string/account" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    style="@style/horizontal_line"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/large_margin"
+                android:layout_height="@dimen/title_height">
+
+                <ImageView
+                    android:id="@+id/pwd_left_iv"
+                    android:layout_width="@dimen/title_height"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:scaleType="center"
+                    android:src="@drawable/login_icon_password"/>
+
+                <ImageView
+                    android:id="@+id/pwd_right_iv"
+                    android:layout_width="@dimen/title_height"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"
+                    android:layout_alignParentRight="true"
+                    android:onClick="showPassword"
+                    android:src="@drawable/password_gone_selector"/>
+
+                <EditText
+                    android:id="@+id/password_et"
+                    style="@style/edit_style"
+                    android:layout_toEndOf="@+id/pwd_left_iv"
+                    android:layout_toStartOf="@id/pwd_right_iv"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"/>
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    style="@style/horizontal_line"/>
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_height"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                android:layout_margin="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/txt_black_large_style"
+                    android:layout_gravity="center"
+                    android:text="@string/login"
+                    android:textSize="@dimen/large_txt_size"
+                    android:textColor="@color/white" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>
