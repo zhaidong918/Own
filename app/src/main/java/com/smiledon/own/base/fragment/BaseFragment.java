@@ -6,7 +6,6 @@ import android.content.pm.ActivityInfo;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.smiledon.own.app.AppApplication;
 import com.smiledon.own.utils.AppUtils;
-import com.smiledon.own.widgets.WaitPorgressDialog;
+import com.smiledon.own.widgets.WaitProgressDialog;
 
 /**
  * Created by Horrarndoo on 2017/9/26.
@@ -28,7 +27,7 @@ public abstract class BaseFragment extends Fragment {
     protected Context mContext;
     protected Activity mActivity;
     protected AppApplication mApplication;
-    protected WaitPorgressDialog mWaitPorgressDialog;
+    protected WaitProgressDialog mWaitPorgressDialog;
 
     @Override
     public void onAttach(Context context) {
@@ -108,7 +107,7 @@ public abstract class BaseFragment extends Fragment {
      * 在监听器之前把数据准备好
      */
     public void initData() {
-        mWaitPorgressDialog = new WaitPorgressDialog(mActivity);
+        mWaitPorgressDialog = new WaitProgressDialog(mActivity);
         mContext = AppUtils.getContext();
         mApplication = AppApplication.getInstance();
     }

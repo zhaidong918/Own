@@ -32,7 +32,6 @@ public abstract class BaseMVPActivity<P extends BasePresenter, M extends IBaseMo
      * 子类可以复写此方法初始化子类数据
      */
     protected void initData() {
-        super.initData();
         mPresenter = (P) initPresenter();
         if (mPresenter != null) {
             mIMode = (M) mPresenter.getModel();
@@ -80,11 +79,6 @@ public abstract class BaseMVPActivity<P extends BasePresenter, M extends IBaseMo
     @Override
     public void startNewActivityForResult(@NonNull Class<?> clz, Bundle bundle, int requestCode) {
         startActivityForResult(clz, bundle, requestCode);
-    }
-
-    @Override
-    public void hideKeybord() {
-        hiddenKeyboard();
     }
 
     @Override

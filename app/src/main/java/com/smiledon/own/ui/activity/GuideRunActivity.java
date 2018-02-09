@@ -3,7 +3,9 @@ package com.smiledon.own.ui.activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.amap.api.location.AMapLocation;
 import com.smiledon.own.R;
+import com.smiledon.own.app.RxBus;
 import com.smiledon.own.base.activity.BaseActivity;
 import com.smiledon.own.databinding.ActivityGuideRunBinding;
 import com.smiledon.own.helper.RxHelper;
@@ -13,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 
 /**
@@ -46,6 +49,20 @@ public class GuideRunActivity extends BaseActivity {
 
         binding.recordTv.setOnClickListener(v -> startActivity(RunRecordActivity.class));
 
+        registerEvent();
+
+    }
+
+
+    private void registerEvent() {
+
+        RxBus.getIntanceBus().addSubscription(RxBus.Event.LOCATION,
+                RxBus.getIntanceBus().doSubscribe(AMapLocation.class,
+                        aMapLocation -> {
+
+                        }, throwable -> {
+
+                        }));
     }
 
 

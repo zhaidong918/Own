@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
+ * 数字从0 变化到目标数字
  * Created by zhaidong on 2017/9/15.
  */
 

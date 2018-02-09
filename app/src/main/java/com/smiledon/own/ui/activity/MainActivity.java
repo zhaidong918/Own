@@ -89,6 +89,9 @@ public class MainActivity extends BaseActivity implements IBaseView{
                 case R.id.nav_item_run:
                     startActivity(GuideRunActivity.class);
                     break;
+                case R.id.nav_item_mine:
+                    startActivity(MineActivity.class);
+                    break;
                 case R.id.nav_item_about:
                     break;
             }

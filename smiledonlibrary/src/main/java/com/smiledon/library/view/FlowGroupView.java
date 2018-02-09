@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 历史记录（仿iOS）
+ */
 public class FlowGroupView extends ViewGroup  {
 
 	/**

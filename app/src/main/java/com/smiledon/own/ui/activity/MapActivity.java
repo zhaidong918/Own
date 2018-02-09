@@ -1,6 +1,5 @@
 package com.smiledon.own.ui.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
@@ -24,6 +23,7 @@ import com.amap.api.maps.model.PolylineOptions;
 import com.amap.api.maps.utils.SpatialRelationUtil;
 import com.amap.api.maps.utils.overlay.SmoothMoveMarker;
 import com.smiledon.own.R;
+import com.smiledon.own.app.RxBus;
 import com.smiledon.own.base.activity.BaseActivity;
 import com.smiledon.own.databinding.ActivityMapBinding;
 import com.smiledon.own.service.model.Latlng;
@@ -38,6 +38,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import io.reactivex.functions.Consumer;
 
 /**
  *
@@ -265,6 +267,8 @@ public class MapActivity extends BaseActivity implements AMapLocationListener,Lo
                 Date date = new Date(aMapLocation.getTime());
                 df.format(date);//定位时间
 
+                RxBus.getIntanceBus().post(aMapLocation);
+
                 if (runStatus == RunStatus.RUN) {
 //                    saveLatLng(aMapLocation);
                 }
@@ -276,6 +280,7 @@ public class MapActivity extends BaseActivity implements AMapLocationListener,Lo
             }
         }
     }
+
 
     private void saveLatLng(AMapLocation aMapLocation) {
         Latlng latLng = new Latlng(aMapLocation.getLatitude(), aMapLocation.getLongitude());

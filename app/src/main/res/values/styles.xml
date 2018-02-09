@@ -161,16 +161,6 @@
     </style>
 
 
-
-
-
-
-
-
-
-
-
-
     <!--结算页面 顶部title切换结算方式-->
     <style name="pay_way_title_radio_style">
         <item name="android:layout_width">0dp</item>
@@ -292,6 +282,45 @@
          <item name="android:scrollbars">vertical</item>
          <item name="android:fadeScrollbars">false</item>
          <item name="android:scrollbarFadeDuration">0</item>-->
+    </style>
+
+
+
+    colorButtonNormal: Button正常状态颜色
+    colorControlNormal: 控件正常状态颜色
+    colorControlActivated: 选中或者点击获得焦点后的颜色
+    colorAccent: 选中或者点击获得焦点后的颜色
+
+
+    <style name="RedButton" parent="Widget.AppCompat.Button">
+        <item name="colorButtonNormal">#F44336</item>
+    </style>
+
+    <style name="BlueButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">#3646f4</item>
+    </style>
+
+    <style name="GrayButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="colorButtonNormal">#a6a0a0</item>
+    </style>
+
+    <style name="GreenButton" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="colorButtonNormal">#1b780a</item>
+    </style>
+
+    <style name="RedSelector">
+        <item name="colorControlNormal">#a6a0a0</item>
+        <item name="colorControlActivated">#F44336</item>
+    </style>
+
+    <style name="BlueSelector">
+        <item name="colorControlNormal">#a6a0a0</item>
+        <item name="colorControlActivated">#3646f4</item>
+    </style>
+
+    <style name="GreenSelector">
+        <item name="colorControlNormal">#a6a0a0</item>
+        <item name="colorControlActivated">#1b780a</item>
     </style>
 
 </resources>

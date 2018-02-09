@@ -52,13 +52,19 @@
         <activity android:name="com.smiledon.own.ui.activity.WelcomeActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.GuideRunActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.RunRecordActivity"/>
+        <activity android:name="com.smiledon.own.ui.activity.WidgetActivity"/>
+        <activity android:name="com.smiledon.own.ui.activity.MineActivity"/>
 
 
         <service android:name=".service.OwnService"/>
         <receiver android:name=".receiver.OwnReceiver"/>
+        <receiver android:name=".receiver.NetStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
 
         <service android:name="com.amap.api.location.APSService"/>
-        
 
         <!--高德地图开发者申请的key-->
         <meta-data android:name="com.amap.api.v2.apikey" android:value="bb66922bf30703e185f069cea60f0b16"/>

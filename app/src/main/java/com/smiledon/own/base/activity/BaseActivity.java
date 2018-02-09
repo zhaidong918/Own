@@ -2,24 +2,24 @@ package com.smiledon.own.base.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 
 import com.smiledon.own.app.AppApplication;
 import com.smiledon.own.app.AppManager;
+import com.smiledon.own.app.RxBus;
 import com.smiledon.own.utils.AppUtils;
-import com.smiledon.own.utils.StatusBarUtils;
-import com.smiledon.own.widgets.WaitPorgressDialog;
+import com.smiledon.own.utils.ToastUtils;
+import com.smiledon.own.widgets.WaitProgressDialog;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
+
+import io.reactivex.functions.Consumer;
 
 
 /**
@@ -30,10 +30,13 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
  * @date 2018/1/3 9:48
  */
 public abstract class BaseActivity extends RxAppCompatActivity {
+
+
     protected AppApplication mApplication;
-    protected WaitPorgressDialog mWaitPorgressDialog;
+
+    protected WaitProgressDialog mWaitProgressDialog;
+
     protected Context mContext;//全局上下文对象
-    protected boolean isTransAnim;
 
     static {
         //5.0以下兼容vector
@@ -43,25 +46,45 @@ public abstract class BaseActivity extends RxAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        init(savedInstanceState);
+
+
+        mContext = AppUtils.getContext();
+        mApplication = AppApplication.getInstance();
+        mWaitProgressDialog = new WaitProgressDialog(this);
+
+        setContentView(createContentView());
+
+        initView(savedInstanceState);
+
+        AppManager.getAppManager().addActivity(this);
+
+        registerNetStatusListener();
+
     }
+
+    protected void registerNetStatusListener(){
+
+        RxBus.getIntanceBus().addSubscription(RxBus.Event.NET_STATUS,
+                RxBus.getIntanceBus().doSubscribe(boolean.class, aBoolean -> {
+                    if (aBoolean) {
+                        ToastUtils.showToast("网络恢复全力加载");
+                    }
+                    else {
+                        ToastUtils.showToast("网络点都不给力");
+                    }
+                }, throwable -> {
+                    ToastUtils.showToast(throwable.getMessage());
+                }));
+    }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         AppManager.getAppManager().finishActivity(this);
+        RxBus.getIntanceBus().unSubscribe(RxBus.Event.NET_STATUS);
     }
 
-
-    private void init(Bundle savedInstanceState) {
-//        setTheme(ThemeUtils.themeArr[SpUtils.getThemeIndex(this)][SpUtils.getNightModel(this) ? 1 : 0]);
-        setContentView(createContentView());
-        StatusBarUtils.setTransparent(this);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        initData();
-        initView(savedInstanceState);
-        AppManager.getAppManager().addActivity(this);
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.ECLAIR)
     public void reload() {
@@ -73,17 +96,6 @@ public abstract class BaseActivity extends RxAppCompatActivity {
         startActivity(intent);
     }
 
-    /**
-     * 初始化数据
-     * <p>
-     * 子类可以复写此方法初始化子类数据
-     */
-    protected void initData() {
-        mContext = AppUtils.getContext();
-        mApplication = AppApplication.getInstance();
-        mWaitPorgressDialog = new WaitPorgressDialog(this);
-        isTransAnim = true;
-    }
 
     /**
      * 获取当前layouty的布局ID,用于设置当前布局
@@ -116,16 +128,16 @@ public abstract class BaseActivity extends RxAppCompatActivity {
      * @param msg 提示框内容字符串
      */
     protected void showProgressDialog(String msg) {
-        mWaitPorgressDialog.setMessage(msg);
-        mWaitPorgressDialog.show();
+        mWaitProgressDialog.setMessage(msg);
+        mWaitProgressDialog.show();
     }
 
     /**
      * 隐藏提示框
      */
     protected void hideProgressDialog() {
-        if (mWaitPorgressDialog != null) {
-            mWaitPorgressDialog.dismiss();
+        if (mWaitProgressDialog != null) {
+            mWaitProgressDialog.dismiss();
         }
     }
 
@@ -153,10 +165,6 @@ public abstract class BaseActivity extends RxAppCompatActivity {
             intent.putExtras(bundle);
         }
         startActivity(intent);
-        if (isTransAnim) {
-           /* overridePendingTransition(R.anim.activity_start_zoom_in, R.anim
-                    .activity_start_zoom_out);*/
-        }
     }
 
     public void startActivityForResult(Class<?> clz,int requestCode) {
@@ -177,67 +185,6 @@ public abstract class BaseActivity extends RxAppCompatActivity {
             intent.putExtras(bundle);
         }
         startActivityForResult(intent, requestCode);
-        if (isTransAnim) {
-           /* overridePendingTransition(R.anim.activity_start_zoom_in, R.anim
-                    .activity_start_zoom_out);*/
-        }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.ECLAIR)
-    @Override
-    public void finish() {
-        super.finish();
-        if (isTransAnim) {
-           /* overridePendingTransition(R.anim.activity_finish_trans_in, R.anim
-                    .activity_finish_trans_out);*/
-        }
-    }
-
-    /**
-     * 隐藏键盘
-     *
-     * @return 隐藏键盘结果
-     * <p>
-     * true:隐藏成功
-     * <p>
-     * false:隐藏失败
-     */
-    protected boolean hiddenKeyboard() {
-        //点击空白位置 隐藏软键盘
-        InputMethodManager mInputMethodManager = (InputMethodManager) getSystemService
-                (INPUT_METHOD_SERVICE);
-        return mInputMethodManager.hideSoftInputFromWindow(this
-                .getCurrentFocus().getWindowToken(), 0);
-    }
-
-    protected void initTitleBar(Toolbar toolbar, String title) {
-        toolbar.setTitle(title);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        //设置toolbar的图标
-//        toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white);
-        //设置toolbar的图标的点击事件
-//        toolbar.setNavigationOnClickListener(new IView.OnClickListener() {
-//            @Override
-//            public void onClick(IView view) {
-//                onBackPressedSupport();
-//            }
-//        });
-    }
-
-    /**
-     * 是否使用overridePendingTransition过度动画
-     * @return 是否使用overridePendingTransition过度动画，默认使用
-     */
-    protected boolean isTransAnim() {
-        return isTransAnim;
-    }
-
-    /**
-     * 设置是否使用overridePendingTransition过度动画
-     */
-    protected void setIsTransAnim(boolean b){
-        isTransAnim = b;
-    }
 }

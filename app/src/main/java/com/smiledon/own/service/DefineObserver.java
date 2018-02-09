@@ -11,9 +11,6 @@ import io.reactivex.disposables.Disposable;
 public class DefineObserver implements Observer {
 
 
-
-
-
     @Override
     public void onSubscribe(Disposable d) {
 
