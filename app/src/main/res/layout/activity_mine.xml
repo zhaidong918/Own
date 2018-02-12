@@ -71,6 +71,13 @@
                         android:onClick="showOriginView"
                         android:text="Origin View"/>
 
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:onClick="showPlan"
+                        android:text="Plan"/>
+
                 </com.smiledon.library.view.FlowGroupView>
             </RelativeLayout>
 

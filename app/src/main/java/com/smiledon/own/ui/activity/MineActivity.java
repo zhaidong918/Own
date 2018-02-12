@@ -32,4 +32,8 @@ public class MineActivity extends BaseActivity {
     public void showOriginView(View view) {
         startActivity(WidgetActivity.class);
     }
+
+    public void showPlan(View view) {
+        startActivity(OwnPlanActivity.class);
+    }
 }

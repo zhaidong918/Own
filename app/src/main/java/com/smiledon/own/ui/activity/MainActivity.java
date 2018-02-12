@@ -1,11 +1,15 @@
 package com.smiledon.own.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.DhcpInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.GridLayoutManager;
 import android.text.Html;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,6 +26,7 @@ import com.smiledon.own.service.presenter.MobPresenter;
 import com.smiledon.own.service.view.IBaseView;
 import com.smiledon.own.ui.adapter.ImageAdapter;
 import com.smiledon.own.utils.AnimUtils;
+import com.smiledon.own.utils.LogUtil;
 import com.smiledon.own.utils.ToastUtils;
 
 import java.util.List;
@@ -52,6 +57,32 @@ public class MainActivity extends BaseActivity implements IBaseView{
         initRecycleView();
 
         startService(new Intent(this, OwnService.class));
+
+
+        WifiManager wifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
+        DhcpInfo dhcpInfo = wifiManager.getDhcpInfo();
+        formatIp(dhcpInfo.gateway);
+        formatIp(dhcpInfo.netmask);
+
+        LogUtil.i(Integer.toBinaryString(dhcpInfo.gateway));
+        LogUtil.i(Integer.toBinaryString(dhcpInfo.netmask));
+
+    }
+
+    public void formatIp(int i) {
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(i & 0xff)
+                .append(".")
+                .append(i >> 8 & 0xff)
+                .append(".")
+                .append(i >> 16 & 0xff)
+                .append(".")
+                .append(i >> 24 & 0xff);
+
+        LogUtil.i(builder.toString());
+
 
     }
 

@@ -323,4 +323,9 @@
         <item name="colorControlActivated">#1b780a</item>
     </style>
 
+    <style name="tab_txt_style">
+        <item name="android:textSize">@dimen/small_txt_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

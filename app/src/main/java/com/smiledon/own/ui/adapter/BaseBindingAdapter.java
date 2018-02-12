@@ -5,16 +5,29 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.LayoutRes;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.smiledon.own.utils.LogUtil;
+
+/**
+ * 基于DataBinding的RecyclerView的适配器
+ * @param <M>
+ * @param <B>
+ */
 public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends RecyclerView.Adapter
 {
     protected Context context;
     protected ObservableArrayList<M> items;
     protected ListChangedCallback itemsChangeCallback;
+
+    protected RecyclerView recyclerView;
+    protected RecyclerView.LayoutManager layoutManager;
 
     public BaseBindingAdapter(Context context)
     {
@@ -37,6 +50,8 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends R
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
+        recyclerView = (RecyclerView) parent;
+        layoutManager = recyclerView.getLayoutManager();
         B binding = DataBindingUtil.inflate(LayoutInflater.from(this.context), this.getLayoutResId(viewType), parent, false);
         return new BaseBindingViewHolder(binding.getRoot());
     }
@@ -99,8 +114,7 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends R
     }
     //endregion
 
-    protected abstract @LayoutRes
-    int getLayoutResId(int viewType);
+    protected abstract @LayoutRes int getLayoutResId(int viewType);
 
     protected abstract void onBindItem(B binding, M item, int position);
 
@@ -143,5 +157,43 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends R
         {
             super(itemView);
         }
+    }
+
+    /**
+     * 获取可见区域的view
+     * @param position
+     * @return
+     * @throws Exception
+     */
+    public View getViewByPosition(int position){
+
+        int firstVisibleItem = -1;
+        int lastVisibleItem = -1;
+
+        if(layoutManager instanceof LinearLayoutManager){
+            firstVisibleItem = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
+            lastVisibleItem = ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
+        }
+        else if (layoutManager instanceof StaggeredGridLayoutManager) {
+            int spanCount = ((StaggeredGridLayoutManager) layoutManager).getSpanCount();
+            int[] firstVisibleItems = new int[spanCount];
+            int[] lastVisibleItems = new int[spanCount];
+            firstVisibleItems = ((StaggeredGridLayoutManager) layoutManager).findFirstVisibleItemPositions(firstVisibleItems);
+            firstVisibleItem = firstVisibleItems[0];
+            lastVisibleItems = ((StaggeredGridLayoutManager) layoutManager).findLastVisibleItemPositions(lastVisibleItems);
+            lastVisibleItem = lastVisibleItems[spanCount-1];
+            position -= firstVisibleItem;
+        }
+
+        View view = null;
+//        LogUtil.i("------------------------------------------");
+//        LogUtil.i("position: " + position);
+//        LogUtil.i("firstVisibleItem: " + firstVisibleItem);
+//        LogUtil.i("lastVisibleItem: " + lastVisibleItem);
+
+        if (position >= firstVisibleItem && position <= lastVisibleItem) {
+            view = layoutManager.findViewByPosition(position);
+        }
+        return view;
     }
 }

@@ -50,10 +50,12 @@
         <activity android:name="com.smiledon.own.ui.activity.MapActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.LoginActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.WelcomeActivity"/>
-        <activity android:name="com.smiledon.own.ui.activity.GuideRunActivity"/>
+        <activity android:name="com.smiledon.own.ui.activity.GuideRunActivity"
+            android:exported="true"/>
         <activity android:name="com.smiledon.own.ui.activity.RunRecordActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.WidgetActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.MineActivity"/>
+        <activity android:name="com.smiledon.own.ui.activity.OwnPlanActivity"/>
 
 
         <service android:name=".service.OwnService"/>

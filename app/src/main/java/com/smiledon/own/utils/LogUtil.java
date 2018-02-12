@@ -6,15 +6,14 @@ import java.util.Locale;
 
 /**
  * 定制的Log系统，若要支持日志上传等，应该在此类里统一处理
- * 统一使用tag: pos
  *
- * @author qinyu
- * @date 2017-9-30 15:56
+ * @author zhaidong
+ * @date 2018-2-11 17:03
  */
 
 public class LogUtil {
 
-    private static final String TAG = "OWN_LOG";
+    private static final String TAG = "ID";
 
     /**
      * 具体上传功能还未实现
@@ -27,16 +26,17 @@ public class LogUtil {
      * INFO:4
      * WARN:5
      * ERROR:6
-     * eg: adb shell setprop log.tag.pos VERBOSE
+     *
+     *
+     * 设置系统日志类型  默认是INFO
+     * eg: adb shell setprop log.tag.OWN_LOG VERBOSE
      */
     private static int LOG_LEVEL;
 
     public static void init() {
-        boolean isDebug = false;
         int logLevel = Log.ERROR;
-        for (int level = Log.DEBUG; level <= Log.ERROR; level++) {
-            isDebug = Log.isLoggable(TAG, level);
-            if (isDebug) {
+        for (int level = Log.VERBOSE; level <= Log.ERROR; level++) {
+            if (Log.isLoggable(TAG, level)) {
                 logLevel = level;
                 break;
             }
@@ -102,6 +102,13 @@ public class LogUtil {
         }
     }
 
+    /**
+     * 通过Java的异常栈痕迹
+     * 打印当前的类名、方法名和行数
+     * @param format
+     * @param args
+     * @return
+     */
     private static String buildMessage(String format, Object... args) {
         String msg = (args == null || args.length == 0) ? format : String.format(Locale.CHINA,
                 format, args);

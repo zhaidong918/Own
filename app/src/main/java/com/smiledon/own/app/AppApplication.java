@@ -1,8 +1,9 @@
 package com.smiledon.own.app;
 
-import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
+
+import com.smiledon.own.utils.LogUtil;
 
 import org.litepal.LitePalApplication;
 
@@ -30,6 +31,9 @@ import org.litepal.LitePalApplication;
         sContext = getApplicationContext();
         sHandler = new Handler();
         sMainThreadId = android.os.Process.myTid();
+
+        LogUtil.init();
+
     }
 
     /**
