@@ -13,6 +13,8 @@ import java.util.Date;
 
 public class Plan extends DataSupport{
 
+    private int id;
+
     /** 创建时间 */
     private Date create_date;
 
@@ -29,7 +31,7 @@ public class Plan extends DataSupport{
     private String plan;
 
     /** 是否完成 */
-    private boolean is_complete;
+    private int is_complete;
 
     /** 未完成原因 */
     private String reason;
@@ -74,11 +76,11 @@ public class Plan extends DataSupport{
         this.plan = plan;
     }
 
-    public boolean isIs_complete() {
+    public int getIs_complete() {
         return is_complete;
     }
 
-    public void setIs_complete(boolean is_complete) {
+    public void setIs_complete(int is_complete) {
         this.is_complete = is_complete;
     }
 
@@ -88,5 +90,13 @@ public class Plan extends DataSupport{
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

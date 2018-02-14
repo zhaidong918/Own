@@ -1,19 +1,29 @@
 package com.smiledon.own.ui.activity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.smiledon.own.R;
 import com.smiledon.own.app.AppApplication;
+import com.smiledon.own.app.OwnConfig;
 import com.smiledon.own.base.activity.BaseActivity;
 import com.smiledon.own.databinding.ActivityOwnPlanBinding;
 import com.smiledon.own.service.model.Plan;
+import com.smiledon.own.ui.adapter.BaseBindingAdapter;
 import com.smiledon.own.ui.adapter.OwnPlanAdapter;
+import com.smiledon.own.utils.LogUtil;
 import com.smiledon.own.utils.ResourcesUtils;
+
+import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +39,7 @@ public class OwnPlanActivity extends BaseActivity{
 
     private ActivityOwnPlanBinding mBinding;
     private OwnPlanAdapter adapter;
-    private List<Plan> dataList;
+    //    private List<Plan> dataList;
     private DividerItemDecoration dividerItemDecoration;
 
     private String[] oneTabs;
@@ -51,7 +61,6 @@ public class OwnPlanActivity extends BaseActivity{
         initData();
         initEvent();
 
-        initModel();
     }
 
     private void initTabs() {
@@ -66,10 +75,10 @@ public class OwnPlanActivity extends BaseActivity{
     }
 
     private void initData() {
+//        if(dataList == null)
+//            dataList = new ArrayList<>();
 
-        dataList = new ArrayList<>();
-
-        adapter = new OwnPlanAdapter(mContext);
+        adapter = new OwnPlanAdapter(this);
 
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 //        mBinding.recyclerView.setLayoutManager(new GridLayoutManager(mContext, 2));
@@ -77,7 +86,6 @@ public class OwnPlanActivity extends BaseActivity{
         dividerItemDecoration.setDrawable(ResourcesUtils.getDrawable(R.drawable.divider));
         mBinding.recyclerView.addItemDecoration(dividerItemDecoration);
         mBinding.recyclerView.setAdapter(adapter);
-
     }
 
     private void initTabsTitle(TabLayout tabLayout, String[] titles) {
@@ -131,26 +139,48 @@ public class OwnPlanActivity extends BaseActivity{
 
     private void onTabSelect(int tabId, TabLayout.Tab tab) {
         params[tabId] = (int) tab.getTag();
+        updateRecycleView();
     }
 
 
-    private void initModel() {
+    public void addPlan(View view) {
+        startActivity(EditPlanActivity.class);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateRecycleView();
+    }
 
-        Plan plan = new Plan();
-        plan.setIs_complete(false);
-        plan.setPlan("临时任务：新增登录页面账号切换的动画效果");
+    private void updateRecycleView() {
+        adapter.getItems().clear();
+        adapter.getItems().addAll(getData());
+    }
 
-        dataList.add(plan);
+    StringBuilder builder;
+    private List<Plan> getData() {
 
-        for (int i = 0; i < 30; i++) {
-            plan = new Plan();
-            plan.setIs_complete(i%5 == 2);
-            plan.setPlan(i + "\tAPP打包上线完成本次版本迭代");
-            dataList.add(plan);
+        builder = new StringBuilder();
+
+        if (params[0] != OwnConfig.Plan.ALL) {
+            builder.append("is_complete").append(OwnConfig.EQUALS).append(params[0]).append(OwnConfig.BLANK);
         }
 
-        adapter.getItems().addAll(dataList);
+        if (params[1] != OwnConfig.Plan.ALL) {
+            if(builder.toString().endsWith(OwnConfig.BLANK))
+                builder.append("and ");
+            builder.append("level").append(OwnConfig.EQUALS).append(params[1]).append(OwnConfig.BLANK);
+        }
+
+        if (params[2] != OwnConfig.Plan.ALL) {
+            if(builder.toString().endsWith(OwnConfig.BLANK))
+                builder.append("and ");
+            builder.append("type").append(OwnConfig.EQUALS).append(params[2]);
+        }
+
+        LogUtil.i("执行的SQL语句：Select * From Plan Where " + builder.toString());
+        return DataSupport.where(builder.toString()).find(Plan.class);
     }
 
 }

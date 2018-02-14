@@ -7,9 +7,8 @@
 
 
     <list>
-        <mapping class="com.smiledon.own.service.model.Latlng"></mapping>
+        <mapping class="com.smiledon.own.service.model.Latlng"/>
+        <mapping class="com.smiledon.own.service.model.Plan"/>
     </list>
-
-
 
 </litepal>

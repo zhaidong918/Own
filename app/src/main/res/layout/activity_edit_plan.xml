@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small_padding">
+
+            <TextClock
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/normal_txt_size"
+                android:textColor="@color/txt_black"
+                android:layout_centerVertical="true"
+                android:format24Hour="yyyy-MM-dd HH:mm:ss"/>
+
+            <TextView
+                android:id="@+id/plan_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/normal_txt_size"
+                android:textColor="@color/txt_black"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/small_padding">
+
+            <Spinner
+                android:id="@+id/type_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_margin"/>
+
+            <Spinner
+                android:id="@+id/time_spinner"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/instancy_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_margin"/>
+
+            <Spinner
+                android:id="@+id/importance_spinner"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/plan_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:padding="@dimen/small_padding"
+            android:hint="Write your plan in here!"
+            android:gravity="top|left"
+            android:textSize="16sp"
+            android:lineSpacingExtra="3dp"
+            android:textColor="@color/txt_black"
+            android:background="@color/white"
+            android:textColorHint="@color/hint_color"/>
+
+        <Button
+            android:id="@+id/add_plan_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height"
+            android:theme="@style/BlueButton"
+            android:text="Plan B"
+            android:onClick="addPlan"
+            android:textColor="@color/white"/>
+
+
+    </LinearLayout>
+
+</layout>

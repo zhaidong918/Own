@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="com.smiledon.own.app.OwnConfig.Plan" />
+
         <variable
             name="plan"
             type="com.smiledon.own.service.model.Plan"/>
@@ -34,7 +36,7 @@
                     android:text="重"
                     android:textColor="@color/white"
                     android:textSize="10sp"
-                    android:background="@{plan.is_complete ? @drawable/background_disabled : @drawable/background_primary}"
+                    android:background="@{plan.is_complete == Plan.TabOne.COMPLETE || plan.level == Plan.TabTwo.INSTANCY || plan.level == Plan.TabTwo.OTHER ? @drawable/background_disabled : @drawable/background_primary}"
                     android:padding="3dp"/>
 
                 <TextView
@@ -45,7 +47,7 @@
                     android:textColor="@color/white"
                     android:textSize="10sp"
                     android:layout_marginLeft="5dp"
-                    android:background="@{plan.is_complete ? @drawable/background_disabled : @drawable/background_red}"
+                    android:background="@{plan.is_complete == Plan.TabOne.COMPLETE || plan.level == Plan.TabTwo.IMPORTANCE || plan.level == Plan.TabTwo.OTHER ? @drawable/background_disabled : @drawable/background_red}"
                     android:padding="3dp"/>
             </LinearLayout>
 
@@ -56,8 +58,8 @@
                 android:scaleX="0.8"
                 android:scaleY="0.8"
                 android:layout_gravity="center"
-                android:checked="@{plan.is_complete}"
-                android:enabled="@{!plan.is_complete}"
+                android:checked="@{plan.is_complete == Plan.TabOne.COMPLETE}"
+                android:enabled="@{plan.is_complete != Plan.TabOne.COMPLETE}"
                 android:theme="@style/BlueSelector"
                 android:visibility="gone"/>
 
@@ -69,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="@{plan.plan}"
-            android:textColor="@{plan.is_complete ? @color/disable_color : @color/txt_black}"
+            android:textColor="@{plan.is_complete == Plan.TabOne.COMPLETE ? @color/disable_color : @color/txt_black}"
             android:textSize="14sp"
             android:layout_marginLeft="10dp"
             android:maxLines="2"

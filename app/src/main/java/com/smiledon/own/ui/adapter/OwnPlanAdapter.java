@@ -1,21 +1,21 @@
 package com.smiledon.own.ui.adapter;
 
+import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
+import android.content.DialogInterface;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
 import com.smiledon.own.R;
+import com.smiledon.own.app.OwnConfig;
 import com.smiledon.own.databinding.ItemPlanLayoutBinding;
 import com.smiledon.own.service.model.Plan;
 import com.smiledon.own.utils.AnimUtils;
 import com.smiledon.own.utils.LogUtil;
+
+import org.litepal.crud.DataSupport;
 
 /**
  * 计划列表适配器
@@ -46,16 +46,32 @@ public class OwnPlanAdapter extends BaseBindingAdapter<Plan, ItemPlanLayoutBindi
 
         updateView(binding,  position == lastPosition, false);
 
-        binding.getRoot().setOnClickListener(v -> {
+        binding.getRoot().setOnLongClickListener(v -> {
 
             if(lastPosition != -1 && lastPosition != position)
                 updateView(lastPosition);
 
+            if (OwnConfig.Plan.TabOne.COMPLETE == item.getIs_complete()) {
+                return true;
+            }
+
             lastPosition = binding.cb.isShown() ? -1 : position ;
             updateView(binding, !binding.cb.isShown(), true);
 
-            LogUtil.i("lastPosition : " +lastPosition);
+            return true;
+        });
 
+        binding.getRoot().setOnClickListener(v -> {
+            if (binding.cb.isShown()) {
+                binding.cb.performClick();
+            }
+        });
+
+        binding.cb.setOnClickListener(v -> {
+            //获取的是点击后的选中状态
+            if (binding.cb.isChecked()) {
+                showCompleteDialog(binding, item, position);
+            }
         });
 
     }
@@ -81,11 +97,31 @@ public class OwnPlanAdapter extends BaseBindingAdapter<Plan, ItemPlanLayoutBindi
         if (view != null) {
             LinearLayout tagLayout = view.findViewById(R.id.tag_layout);
             CheckBox cb = view.findViewById(R.id.cb);
-            tagLayout.setVisibility(View.VISIBLE);
-            cb.setVisibility(View.GONE);
-//            AnimUtils.alphaAnim(tagLayout, View.VISIBLE, true);
-//            AnimUtils.alphaAnim(cb, View.GONE, true);
+            AnimUtils.alphaAnim(tagLayout, View.VISIBLE, true);
+            AnimUtils.alphaAnim(cb, View.GONE, true);
         }
 
+    }
+
+    private void showCompleteDialog(ItemPlanLayoutBinding binding, Plan item, int position) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(item.getPlan())
+                .setNegativeButton("还没完成", (dialog, which) ->{
+                    dialog.dismiss();
+                    binding.cb.setChecked(false);
+                })
+                .setPositiveButton("已完成", (dialog, which) -> {
+                    item.setIs_complete(OwnConfig.Plan.TabOne.COMPLETE);
+                    ContentValues values = new ContentValues();
+                    values.put("is_complete", item.getIs_complete());
+                    DataSupport.update(Plan.class, values, item.getId());
+                })
+                .setOnDismissListener(dialog ->{
+                    binding.getRoot().performLongClick();
+//                        onBindItem(binding, item, position)
+                });
+
+        builder.show();
     }
 }

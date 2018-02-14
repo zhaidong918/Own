@@ -29,6 +29,8 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends R
     protected RecyclerView recyclerView;
     protected RecyclerView.LayoutManager layoutManager;
 
+    protected OnItemClickListener onItemClickListener;
+
     public BaseBindingAdapter(Context context)
     {
         this.context = context;
@@ -159,6 +161,15 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends R
         }
     }
 
+    public  interface OnItemClickListener<M> {
+        void onItemClick(M item, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener clickListener) {
+        this.onItemClickListener = clickListener;
+    }
+
+
     /**
      * 获取可见区域的view
      * @param position
@@ -186,10 +197,6 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends R
         }
 
         View view = null;
-//        LogUtil.i("------------------------------------------");
-//        LogUtil.i("position: " + position);
-//        LogUtil.i("firstVisibleItem: " + firstVisibleItem);
-//        LogUtil.i("lastVisibleItem: " + lastVisibleItem);
 
         if (position >= firstVisibleItem && position <= lastVisibleItem) {
             view = layoutManager.findViewByPosition(position);

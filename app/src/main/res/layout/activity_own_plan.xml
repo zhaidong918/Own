@@ -72,6 +72,7 @@
             android:theme="@style/GrayButton"
             android:layout_gravity="right|bottom"
             android:layout_margin="20dp"
+            android:onClick="addPlan"
             android:src="@drawable/img_add"/>
 
     </android.support.design.widget.CoordinatorLayout>

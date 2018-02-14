@@ -9,6 +9,11 @@ package com.smiledon.own.app;
 
 public class OwnConfig {
 
+    public static final String COMMA = ",";
+    public static final String EQUALS = "=";
+    public static final String QUESTION = "?";
+    public static final String BLANK = " ";
+
 
     public static class Plan{
 
@@ -26,11 +31,11 @@ public class OwnConfig {
 
             public static final int NOW = 0x01;
 
-            public static final int IMPORTANCE = 0x03;
+            public static final int IMPORTANCE = 0x02;
 
-            public static final int INSTANCY = 0x05;
+            public static final int INSTANCY = 0x03;
 
-            public static final int OTHER = 0x02;
+            public static final int OTHER = 0x04;
         }
 
 
