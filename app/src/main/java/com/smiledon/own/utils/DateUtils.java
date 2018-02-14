@@ -255,4 +255,8 @@ public class DateUtils {
     public static String calendar2str(Calendar calendar, String format) {
         return date2str(calendar.getTime(), format);
     }
+
+
+    public static final SimpleDateFormat MM_DD_HH_MM = new SimpleDateFormat("MM-dd HH:mm");
+
 }

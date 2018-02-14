@@ -1,15 +1,9 @@
 package com.smiledon.own.ui.activity;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.text.TextUtils;
 import android.view.View;
 
 import com.smiledon.own.R;
@@ -18,14 +12,12 @@ import com.smiledon.own.app.OwnConfig;
 import com.smiledon.own.base.activity.BaseActivity;
 import com.smiledon.own.databinding.ActivityOwnPlanBinding;
 import com.smiledon.own.service.model.Plan;
-import com.smiledon.own.ui.adapter.BaseBindingAdapter;
 import com.smiledon.own.ui.adapter.OwnPlanAdapter;
 import com.smiledon.own.utils.LogUtil;
 import com.smiledon.own.utils.ResourcesUtils;
 
 import org.litepal.crud.DataSupport;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -79,7 +71,6 @@ public class OwnPlanActivity extends BaseActivity{
 //            dataList = new ArrayList<>();
 
         adapter = new OwnPlanAdapter(this);
-
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 //        mBinding.recyclerView.setLayoutManager(new GridLayoutManager(mContext, 2));
         dividerItemDecoration = new DividerItemDecoration(AppApplication.getInstance(), DividerItemDecoration.VERTICAL);
@@ -140,6 +131,7 @@ public class OwnPlanActivity extends BaseActivity{
     private void onTabSelect(int tabId, TabLayout.Tab tab) {
         params[tabId] = (int) tab.getTag();
         updateRecycleView();
+        adapter.resetLastOpenPosition();
     }
 
 
@@ -180,7 +172,7 @@ public class OwnPlanActivity extends BaseActivity{
         }
 
         LogUtil.i("执行的SQL语句：Select * From Plan Where " + builder.toString());
-        return DataSupport.where(builder.toString()).find(Plan.class);
+        return DataSupport.where(builder.toString()).order("date").find(Plan.class);
     }
 
 }

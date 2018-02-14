@@ -13,56 +13,60 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/small_padding">
 
-            <TextClock
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/normal_txt_size"
-                android:textColor="@color/txt_black"
-                android:layout_centerVertical="true"
-                android:format24Hour="yyyy-MM-dd HH:mm:ss"/>
-
             <TextView
                 android:id="@+id/plan_date_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/normal_txt_size"
-                android:textColor="@color/txt_black"
+                android:layout_centerVertical="true"
+                android:drawablePadding="@dimen/small_padding"
+                android:drawableRight="@drawable/icon_arrow_down"
+                android:padding="@dimen/xx_small_padding"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="2018-01-23" />
+
+            <TextClock
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:textColor="@color/txt_gray"
+                android:format24Hour="MM-dd HH:mm:ss"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/small_padding">
-
-            <Spinner
-                android:id="@+id/type_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/small_margin"/>
+            android:paddingLeft="@dimen/small_padding"
+            android:paddingRight="@dimen/small_padding">
 
             <Spinner
                 android:id="@+id/time_spinner"
-                android:layout_marginLeft="@dimen/small_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                style="@style/plan_spinner_style"/>
 
             <Spinner
-                android:id="@+id/instancy_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/small_margin"/>
+                android:id="@+id/type_spinner"
+                style="@style/plan_spinner_style"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/small_padding"
+            android:paddingRight="@dimen/small_padding">
 
             <Spinner
                 android:id="@+id/importance_spinner"
-                android:layout_marginLeft="@dimen/small_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                style="@style/plan_spinner_style"/>
+
+            <Spinner
+                android:id="@+id/instancy_spinner"
+                style="@style/plan_spinner_style"/>
 
         </LinearLayout>
+
 
         <EditText
             android:id="@+id/plan_et"
@@ -85,8 +89,8 @@
             android:theme="@style/BlueButton"
             android:text="Plan B"
             android:onClick="addPlan"
+            android:layout_margin="@dimen/xx_small_padding"
             android:textColor="@color/white"/>
-
 
     </LinearLayout>
 

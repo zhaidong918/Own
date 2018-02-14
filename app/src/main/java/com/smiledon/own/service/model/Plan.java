@@ -1,7 +1,10 @@
 package com.smiledon.own.service.model;
 
+import com.smiledon.own.utils.DateUtils;
+
 import org.litepal.crud.DataSupport;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -98,5 +101,10 @@ public class Plan extends DataSupport{
 
     public void setId(int id) {
         this.id = id;
+    }
+
+
+    public String getPlanDate() {
+        return  DateUtils.MM_DD_HH_MM.format(date);
     }
 }

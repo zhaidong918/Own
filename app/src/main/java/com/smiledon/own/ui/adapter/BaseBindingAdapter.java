@@ -176,7 +176,7 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends R
      * @return
      * @throws Exception
      */
-    public View getViewByPosition(int position){
+    public B getViewByPosition(int position){
 
         int firstVisibleItem = -1;
         int lastVisibleItem = -1;
@@ -200,7 +200,8 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends R
 
         if (position >= firstVisibleItem && position <= lastVisibleItem) {
             view = layoutManager.findViewByPosition(position);
+            return DataBindingUtil.bind(view);
         }
-        return view;
+        return null;
     }
 }

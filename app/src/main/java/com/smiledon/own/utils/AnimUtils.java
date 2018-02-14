@@ -3,6 +3,10 @@ package com.smiledon.own.utils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.AnimationUtils;
+
+import com.smiledon.own.R;
+import com.smiledon.own.app.AppApplication;
 
 /**
  * @author East Chak
@@ -37,10 +41,13 @@ public class AnimUtils {
 
     }
 
-    public static void translateAnim() {
+    public static void scaleAnim(View view, int visible) {
+        view.setAnimation(AnimationUtils.loadAnimation(AppApplication.getInstance(), visible == View.VISIBLE ? R.anim.pop_down_anim : R.anim.pop_up_anim));
+    }
 
-
-
+    public static void setVisibleScaleAnim(View view, int visible) {
+        view.setVisibility(visible);
+        scaleAnim(view, visible);
     }
 
 }

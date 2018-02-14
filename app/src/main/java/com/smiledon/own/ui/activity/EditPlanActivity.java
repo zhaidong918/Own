@@ -34,7 +34,7 @@ public class EditPlanActivity extends BaseActivity {
 
     private ActivityEditPlanBinding mBinding;
     private ArrayAdapter timeAdapter;
-    private List<String> timeQuantums;
+    private String[] timeQuantums;
 
     private ArrayAdapter planTypeAdapter;
     private String[] planTypes;
@@ -66,8 +66,7 @@ public class EditPlanActivity extends BaseActivity {
 
         mPlan = new Plan();
 
-        timeQuantums = new ArrayList<>();
-        String map;
+        List<String> timeQuantum = new ArrayList<>();
         StringBuilder builder;
         for (int i = 0; i < 24; i++) {
             builder = new StringBuilder();
@@ -77,28 +76,32 @@ public class EditPlanActivity extends BaseActivity {
                 builder.delete(3, builder.length());
                 if(j*30 < 10) builder.append("0");
                 builder.append(j*30);
-                timeQuantums.add(builder.toString());
+                timeQuantum.add(builder.toString());
             }
         }
-        timeAdapter = new ArrayAdapter(mContext, android.R.layout.simple_spinner_item, timeQuantums);
+        timeQuantums = new String[48];
+        timeAdapter = getArrayAdapter(timeQuantum.toArray(timeQuantums));
         //设置下拉列表的风格,simple_spinner_dropdown_item是android系统自带的样式，等会自定义修改
         timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mBinding.timeSpinner.setAdapter(timeAdapter);
 
         planTypes = ResourcesUtils.getStringArray(R.array.plan_type);
-        planTypeAdapter = new ArrayAdapter(mContext, android.R.layout.simple_spinner_item, planTypes);
-        planTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        planTypeAdapter = getArrayAdapter(planTypes);
         mBinding.typeSpinner.setAdapter(planTypeAdapter);
 
         importances = ResourcesUtils.getStringArray(R.array.plan_importance);
-        importanceAdapter = new ArrayAdapter(mContext, android.R.layout.simple_spinner_item, importances);
-        importanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        importanceAdapter = getArrayAdapter(importances);
         mBinding.importanceSpinner.setAdapter(importanceAdapter);
 
         instancys = ResourcesUtils.getStringArray(R.array.plan_instancy);
-        instancyAdapter = new ArrayAdapter(mContext, android.R.layout.simple_spinner_item, instancys);
-        instancyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        instancyAdapter = getArrayAdapter(instancys);
         mBinding.instancySpinner.setAdapter(instancyAdapter);
+    }
+
+    private ArrayAdapter getArrayAdapter(String[] data) {
+        ArrayAdapter arrayAdapter = new ArrayAdapter(mContext, android.R.layout.simple_dropdown_item_1line, data);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return arrayAdapter;
     }
 
     private void initEvent() {
@@ -185,7 +188,7 @@ public class EditPlanActivity extends BaseActivity {
         StringBuilder builder = new StringBuilder();
         builder.append(mBinding.planDateTv.getText().toString());
         builder.append(OwnConfig.BLANK);
-        builder.append(timeQuantums.get(mBinding.timeSpinner.getSelectedItemPosition()));
+        builder.append(timeQuantums[mBinding.timeSpinner.getSelectedItemPosition()]);
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(YYYY_MM_DD + HH_MM);
         try {
