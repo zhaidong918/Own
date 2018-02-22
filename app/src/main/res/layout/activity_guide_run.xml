@@ -60,18 +60,12 @@
             android:layout_height="match_parent"
             android:layout_above="@id/line">
 
-            <android.support.design.widget.CheckableImageButton
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_centerInParent="true"
-                android:layout_alignParentLeft="true"/>
-
             <TextView
                 android:id="@+id/run_distance_tv"
                 style="@style/txt_black_large_bold_style"
                 android:textColor="@color/colorPrimary"
                 android:layout_centerInParent="true"
-                tools:text="0.00"
+                android:text="0.00"
                 android:textSize="60sp"/>
 
             <TextView

@@ -3,6 +3,7 @@ package com.smiledon.own.ui.adapter;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
@@ -10,6 +11,7 @@ import com.smiledon.own.R;
 import com.smiledon.own.app.OwnConfig;
 import com.smiledon.own.databinding.ItemPlanLayoutBinding;
 import com.smiledon.own.service.model.Plan;
+import com.smiledon.own.ui.activity.EditPlanActivity;
 import com.smiledon.own.utils.AnimUtils;
 
 import org.litepal.crud.DataSupport;
@@ -41,12 +43,13 @@ public class OwnPlanAdapter extends BaseBindingAdapter<Plan, ItemPlanLayoutBindi
 
     @Override
     protected void onBindItem(ItemPlanLayoutBinding binding, Plan item, int position) {
-
+        //item出现再视线范围内动画效果
         binding.getRoot().setAnimation(AnimationUtils.loadAnimation(context, R.anim.right_in_anim));
 
         binding.setPlan(item);
 
         binding.planDateTv.setText(item.getPlanDate());
+        //判断是否是打开详情的item
         updateView(binding, lastOpenPosition == position);
 
         binding.getRoot().setOnClickListener(v -> {
@@ -58,16 +61,22 @@ public class OwnPlanAdapter extends BaseBindingAdapter<Plan, ItemPlanLayoutBindi
                 updateView(getViewByPosition(lastOpenPosition), false);
             lastOpenPosition = isShowBottomLayout ? -1 : position;
         });
-
+        //长按删除
         binding.getRoot().setOnLongClickListener(v -> {
             showDeleteDialog(item);
             return true;
         });
 
         binding.cb.setOnClickListener(v -> {
-            //获取的是点击后的选中状态
+            //获取的是点击后的状态
             if (binding.cb.isChecked())
                 showCompleteDialog(binding, item);
+        });
+
+        binding.editTv.setOnClickListener(v -> {
+            Intent intent = new Intent(context, EditPlanActivity.class);
+            intent.putExtra(Plan.TAG, item);
+            context.startActivity(intent);
         });
 
     }
@@ -98,6 +107,9 @@ public class OwnPlanAdapter extends BaseBindingAdapter<Plan, ItemPlanLayoutBindi
                 })
                 .setPositiveButton("标记完成", (dialog, which) -> {
                     item.setIs_complete(OwnConfig.Plan.TabOne.COMPLETE);
+                    //刷新item
+                    binding.setPlan(item);
+                    //更新数据源
                     updatePlan(item);
                 });
 

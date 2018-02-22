@@ -59,12 +59,11 @@ public class EditPlanActivity extends BaseActivity {
         mBinding.planDateTv.setText(new SimpleDateFormat(YYYY_MM_DD).format(new Date()));
 
         initData();
+        initView();
         initEvent();
     }
 
     private void initData() {
-
-        mPlan = new Plan();
 
         List<String> timeQuantum = new ArrayList<>();
         StringBuilder builder;
@@ -102,6 +101,29 @@ public class EditPlanActivity extends BaseActivity {
         ArrayAdapter arrayAdapter = new ArrayAdapter(mContext, android.R.layout.simple_dropdown_item_1line, data);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return arrayAdapter;
+    }
+
+
+    private void initView() {
+
+        mPlan = (Plan) getIntent().getSerializableExtra(Plan.TAG);
+
+        if (null == mPlan) {
+            mPlan = new Plan();
+            return;
+        }
+
+        mBinding.planDateTv.setText(mPlan.getPlanDate());
+
+    }
+    
+    private int getSelectPosition(String[] arrays, String select) {
+        for (int i = 0; i < arrays.length; i++) {
+            if (arrays[i] == select) {
+                return i;
+            }
+        }
+        return 0;
     }
 
     private void initEvent() {

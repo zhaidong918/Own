@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbarStyle="outsideOverlay"
-            android:padding="20dp"
+            android:padding="@dimen/large_margin"
             android:clipToPadding="true">
 
             <LinearLayout
@@ -21,12 +21,76 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="TextClock"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:orientation="vertical">
+
+                    <TextClock
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/large_txt_size"
+                        android:format24Hour="yyyy年MM月dd日 HH:mm:ss"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin"
+                    android:text="CheckedTextView"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:orientation="vertical">
+
+                    <CheckedTextView
+                        android:id="@+id/checkedTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/large_txt_size"
+                        android:text="可选中文本"
+                        android:textColor="@drawable/txt_gray_blue_selector"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin"
+                    android:text="TextSwitcher"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+
+                    <TextSwitcher
+                        android:id="@+id/textSwitcher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inAnimation="@anim/right_in_anim"
+                        android:outAnimation="@anim/left_out_anim"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin"
                     android:text="Button"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/small_margin"
                     android:orientation="vertical">
 
                     <Button
@@ -69,13 +133,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/large_margin"
                     android:text="CheckBox"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/small_margin"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -107,14 +171,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/large_margin"
                     android:text="RadioButton"/>
 
 
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/small_margin"
                     android:orientation="horizontal">
 
                     <RadioButton
@@ -145,14 +209,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/large_margin"
                     android:text="Switch"/>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/small_margin"
                     android:orientation="horizontal">
 
                     <Switch
@@ -178,6 +242,90 @@
                         android:layout_weight="1.0"
                         android:layout_height="wrap_content"
                         android:theme="@style/GreenSelector"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin"
+                    android:text="SeekBar"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:orientation="vertical">
+
+                    <!--
+                    android:animationResolution
+                    超时的动画帧之间的毫秒 ；必须是一个整数值,如“100”。
+                    android:indeterminate
+                    是否允许使用不确定模式，在不确定模式下，进度条动画无限循环
+                    android:indeterminateBehavior
+                    定义当进度达到最大时，不确定模式的表现；
+                    该值必须为repeat或者cycle，repeat表示进度从0重新开始；cycle表示进度保持当前值，并且回到0
+                    android:indeterminateDrawable
+                    定义不确定模式是否可拉
+                    android:indeterminateDuration
+                    时间不定的动画
+                    android:indeterminateOnly
+                    限制为不定模式
+
+
+                    android:interpolator
+
+                    android:max
+                    定义进度的最大值
+                    android:maxHeight
+                    进度Widget最大高
+                    android:miniHeight
+                    进度Widget最小高
+                    android:maxWidth
+                    进度Widget最大宽
+                    android:minWidth
+                    进度Widget最小宽
+                    android:mirrorForRtl
+                    定义了相关画板如果需要反映在RTL模式
+                    android:progress
+                    设置进度的默认值，值介于0到max之间
+                    android:progressDrawable
+
+                    android:secondaryProgress
+                    定义二级进度值，值介于0到max。该进度在主进度和背景之间。比如用于网络播放视频时，二级进度用于表示缓冲进度，主进度用于表示播放进度。
+                    -->
+
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:max="100"
+                        android:progress="0"
+                        android:secondaryProgress="23"/>
+
+                    <android.support.v7.widget.AppCompatSeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:max="100"
+                        android:progress="0"
+                        android:secondaryProgress="23"
+                        android:indeterminate="true"/>
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:minHeight="2dp"
+                        android:maxHeight="2dp"
+                        android:max="100"
+                        android:progress="0"
+                        android:secondaryProgress="12"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/seek_bar_progress_bg"
+                        android:thumb="@drawable/seek_bar_thumb"/>
 
                 </LinearLayout>
 

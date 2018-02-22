@@ -9,6 +9,7 @@
     <list>
         <mapping class="com.smiledon.own.service.model.Latlng"/>
         <mapping class="com.smiledon.own.service.model.Plan"/>
+        <mapping class="com.smiledon.own.service.model.AndroidSystemInfo"/>
     </list>
 
 </litepal>

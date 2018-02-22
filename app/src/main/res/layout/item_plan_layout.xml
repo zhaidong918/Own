@@ -78,7 +78,7 @@
             android:layout_marginLeft="-15dp"
             android:layout_marginTop="@dimen/x_small_padding"
             android:visibility="gone"
-            android:gravity="right">
+            android:gravity="right|center_vertical">
 
             <CheckBox
                 android:id="@+id/cb"
@@ -93,6 +93,16 @@
                 android:textColor="@{plan.is_complete == Plan.TabOne.COMPLETE? @color/disable_color : @color/txt_gray}"
                 android:textSize="@dimen/normal_txt_size"
                 android:text="点击完成"/>
+
+            <TextView
+                android:id="@+id/edit_tv"
+                style="@style/txt_black_small_style"
+                android:text="编辑一波"
+                android:textColor="@{plan.is_complete == Plan.TabOne.COMPLETE ? @color/disable_color : @color/blue}"
+                android:enabled="@{plan.is_complete != Plan.TabOne.COMPLETE}"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:lineSpacingExtra="3dp"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

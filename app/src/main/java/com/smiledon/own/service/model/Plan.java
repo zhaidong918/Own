@@ -4,6 +4,7 @@ import com.smiledon.own.utils.DateUtils;
 
 import org.litepal.crud.DataSupport;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -14,7 +15,9 @@ import java.util.Date;
  * @date 2018/2/12 13:22
  */
 
-public class Plan extends DataSupport{
+public class Plan extends DataSupport implements Serializable{
+
+    public static final String TAG = Plan.class.getSimpleName();
 
     private int id;
 
