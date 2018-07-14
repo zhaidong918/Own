@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <TextView
+                android:id="@+id/item_order_type_tv"
+                style="@style/wrap_text_style"
+                android:textColor="@color/blue_color"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"
+                android:text="@string/buy_in"/>
+
+            <TextView
+                style="@style/wrap_text_style"
+                android:textColor="@color/white_color"
+                android:layout_toRightOf="@id/item_order_type_tv"
+                android:layout_marginLeft="10dp"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"
+                android:text="@string/newg_btc"/>
+
+            <TextView
+                android:id="@+id/item_order_status_tv"
+                style="@style/wrap_text_style"
+                android:textColor="@color/white_color"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="已撤销"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                style="@style/wrap_text_style"
+                android:textColor="@color/black_9"
+                android:textSize="12sp"
+                android:layout_centerVertical="true"
+                android:text="@string/time"/>
+
+            <TextView
+                style="@style/wrap_text_style"
+                android:textColor="@color/black_9"
+                android:textSize="12sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/entrust_quantity"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/wrap_text_style"
+                android:textColor="@color/white_color"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"
+                android:text="2018-04-06 18:16:03"/>
+
+            <TextView
+                style="@style/wrap_text_style"
+                android:textColor="@color/white_color"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="012545.156454"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                style="@style/wrap_text_style"
+                android:textColor="@color/black_9"
+                android:textSize="12sp"
+                android:layout_centerVertical="true"
+                android:text="@string/entrust_price"/>
+
+            <TextView
+                style="@style/wrap_text_style"
+                android:textColor="@color/black_9"
+                android:textSize="12sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/traded_quantity"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/wrap_text_style"
+                android:textColor="@color/white_color"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"
+                android:text="0.00000235"/>
+
+            <TextView
+                style="@style/wrap_text_style"
+                android:textColor="@color/white_color"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="15454.152"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
+

@@ -75,5 +75,49 @@
         <item>不紧急</item>
     </array>
 
+    <string name="html_string">
+        <Data>
+            <![CDATA[我是<font color="#001190ff">谁</font>啦]]>
+        </Data>
+    </string>
+
+
+    <string name="chart">图表</string>
+    <string name="buy_sell_order">买卖盘</string>
+    <string name="newest_deal">最新成交</string>
+    <string name="newg">NEWG</string>
+    <string name="newg_btc">NEWG/BTC</string>
+    <string name="btc">BTC</string>
+    <string name="chart_cny_price">≈ 0.135\tCNY</string>
+    <string name="cny_price">≈ %1$sCNY</string>
+
+    <string name="max_price_s">最高币价\t 0.00000235</string>
+    <string name="min_price_s">最低币价\t 0.00000235</string>
+    <string name="today_open_price_s">今日开盘价\t 0.00000235</string>
+    <string name="one_day_volume_s">24H成交量\t 54445454</string>
+
+    <string name="order_type_buy">
+        <Data>
+            <![CDATA[<font color="#24f694">买/</font>卖]]>
+        </Data>
+    </string>
+
+    <string name="order_type_sell">
+        <Data>
+            <![CDATA[买<font color="#e76e43">/卖</font>]]>
+        </Data>
+    </string>
+
+    <string name="high_light_info">%1$s\t 开：%2$s 高：%3$s 低：%4$s 收：%5$s</string>
+    <string name="interest_s">等额本息（息：%.2f）</string>
+    <string name="capital_s">等额本金（息：%.2f）</string>
+    <string name="s">%.2f</string>
+
+    <string-array name="kline_type">
+        <item>5分钟</item>
+        <item>30分钟</item>
+        <item>1小时</item>
+        <item>1天</item>
+    </string-array>
 
 </resources>

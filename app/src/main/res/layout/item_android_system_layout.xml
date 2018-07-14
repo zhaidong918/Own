@@ -28,7 +28,7 @@
              style="@style/txt_black_large_style"
              tools:text="G"
              android:text="@{info.alias}"
-             android:textColor="@color/blue"/>
+             android:textColor="@color/red"/>
          <TextView
              android:id="@+id/version_tv"
              style="@style/txt_black_large_style"

@@ -10,40 +10,103 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.CoordinatorLayout
+        <LinearLayout
+            android:id="@+id/root_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
 
             <include
                 android:id="@+id/appbar"
                 layout="@layout/appbar_layout"/>
 
-
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:divider="@color/background_layout"
-                android:dividerHeight="10dp"
-                android:layout_below="@+id/appbar"
+                android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+                android:layout_below="@+id/appbar"
+                android:visibility="gone"/>
 
-            <!--<android.support.v4.widget.NestedScrollView
+            <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="1000dp"
-                android:padding="@dimen/small_padding"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+                android:layout_height="match_parent"
+                android:layout_below="@+id/appbar"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:id="@+id/frame_content"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/appbar"
                     android:background="@color/background_layout"
-                    android:orientation="vertical"/>
-            </android.support.v4.widget.NestedScrollView>-->
+                    android:padding="@dimen/small_padding"
+                    android:focusable="true"
+                    android:clipChildren="false"
+                    android:orientation="vertical">
 
-        </android.support.design.widget.CoordinatorLayout>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="建立连接"
+                        android:onClick="connect"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reverse"
+                        android:onClick="Reverse"/>
+
+
+                    <com.smiledon.own.widgets.DotLoadingTextView
+                        android:id="@+id/waiting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/normal_margin"
+                        android:text="请耐心等待..."/>
+
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/normal_margin"
+                        android:text="@string/html_string"/>
+
+
+                    <com.smiledon.own.widgets.IProgressBar
+                        android:id="@+id/uploadSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:paddingRight="20dp"
+                        android:maxHeight="4dp"
+                        android:minHeight="4dp"
+                        android:progress="50"
+                        android:thumb="@drawable/seek_bar_thumb"
+                        android:progressDrawable="@drawable/seek_bar_progress_bg"/>
+
+
+                    <!--<com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:lottie_fileName="looking_for_router.json"
+                        app:lottie_loop="true"
+                        app:lottie_autoPlay="true"/>
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/success"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="showSuccess"
+                        android:layout_marginTop="@dimen/large_margin"
+                        android:src="@drawable/icon_nav_home"/>-->
+
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+
+        </LinearLayout>
 
 
         <android.support.design.widget.NavigationView

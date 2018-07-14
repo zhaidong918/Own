@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_market"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/newg"
+            style="@style/wrap_text_style"
+            android:text="@string/newg"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x20" />
+
+        <TextView
+            android:id="@+id/newg_btc"
+            style="@style/wrap_text_style"
+            android:text="@string/newg_btc"
+            android:textColor="#999999"
+            android:textSize="@dimen/x16"
+            app:layout_constraintStart_toStartOf="@+id/newg"
+            app:layout_constraintTop_toBottomOf="@+id/newg" />
+
+        <TextView
+            android:id="@+id/price_tv"
+            style="@style/wrap_text_style"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="0.00"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x32"
+            app:layout_constraintStart_toStartOf="@+id/newg"
+            app:layout_constraintTop_toBottomOf="@+id/newg_btc"
+            tools:text="0.125545455154" />
+
+        <TextView
+            android:id="@+id/cny_price_tv"
+            style="@style/wrap_text_style"
+            android:layout_centerVertical="true"
+            android:text="@string/chart_cny_price"
+            android:textColor="#999999"
+            android:textSize="@dimen/x16"
+            app:layout_constraintStart_toStartOf="@+id/newg"
+            app:layout_constraintTop_toBottomOf="@+id/price_tv" />
+
+        <CheckedTextView
+            android:id="@+id/price_trend_tv"
+            style="@style/wrap_text_style"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:checked="true"
+            android:drawablePadding="10dp"
+            android:drawableStart="@color/transparent"
+            android:enabled="false"
+            android:gravity="center_vertical"
+            android:text="+0%"
+            android:textColor="@color/red"
+            android:textSize="@dimen/x16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cny_price_tv" />
+
+
+        <TextView
+            android:id="@+id/max_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/max_price_s"
+            android:textColor="#999999"
+            android:textSize="@dimen/x11"
+            app:layout_constraintStart_toStartOf="@+id/newg"
+            app:layout_constraintTop_toBottomOf="@+id/cny_price_tv" />
+
+        <TextView
+            android:id="@+id/min_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/min_price_s"
+            android:textColor="#999999"
+            android:textSize="@dimen/x11"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/volume_tv" />
+
+
+        <TextView
+            android:id="@+id/today_open_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today_open_price_s"
+            android:textColor="#999999"
+            android:textSize="@dimen/x11"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/max_price_tv" />
+
+        <TextView
+            android:id="@+id/volume_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/one_day_volume_s"
+            android:textAlignment="viewStart"
+            android:textColor="#999999"
+            android:textSize="@dimen/x11"
+            app:layout_constraintStart_toStartOf="@+id/newg"
+            app:layout_constraintTop_toBottomOf="@+id/max_price_tv" />
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/volume_tv"
+            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorHeight="1dp"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextAppearance="@style/kline_type_text_size"
+            app:tabTextColor="#999999">
+
+        </android.support.design.widget.TabLayout>
+
+        <TextView
+            android:id="@+id/high_light_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#999999"
+            android:textSize="@dimen/x8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
+
+        <com.github.mikephil.charting.charts.CombinedChart
+            android:id="@+id/chart_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/high_light_tv" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="173dp" />
+
+        <android.support.constraint.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:background="@color/ui_market_bg"
+            app:constraint_referenced_ids="high_light_tv,chart_view" />
+
+        <android.support.constraint.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

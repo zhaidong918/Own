@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/item_time_tv"
+            android:layout_width="80dp"
+            style="@style/wrap_text_style.small_white_singleLine"
+            android:text="16:21:56"/>
+
+        <TextView
+            android:id="@+id/item_price_tv"
+            style="@style/wrap_text_style.small_white_singleLine"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="10dp"
+            android:text="0.000000253"/>
+
+        <TextView
+            android:id="@+id/item_quantity_tv"
+            style="@style/wrap_text_style.small_white_singleLine"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="10dp"
+            android:text="11111111111"/>
+
+    </LinearLayout>
+</layout>

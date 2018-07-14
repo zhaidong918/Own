@@ -1,0 +1,78 @@
+<resources>
+
+    <string name="app_name">Market</string>
+    <string name="chart">图表</string>
+    <string name="buy_sell_order">买卖盘</string>
+    <string name="newest_deal">最新成交</string>
+    <string name="newg">NEWG</string>
+    <string name="newg_btc">NEWG/BTC</string>
+    <string name="chart_cny_price">≈\t %s\tCNY</string>
+
+    <string name="max_price_s">
+         <Data>
+            <![CDATA[最高币价\t <font color="#F7E5C6">%s</font>]]>
+        </Data>
+    </string>
+    <string name="min_price_s">
+        <Data>
+            <![CDATA[最低币价\t <font color="#F7E5C6">%s</font>]]>
+        </Data>
+    </string>
+    <string name="today_open_price_s">
+        <Data>
+            <![CDATA[今日开盘价\t <font color="#F7E5C6">%s</font>]]>
+        </Data>
+    </string>
+    <string name="one_day_volume_s">
+        <Data>
+            <![CDATA[24H成交量\t <font color="#F7E5C6">%s</font>]]>
+        </Data>
+    </string>
+
+    <string name="order_type_buy">
+        <Data>
+            <![CDATA[<font color="#24f694">买/</font>卖]]>
+        </Data>
+    </string>
+
+    <string name="order_type_sell">
+        <Data>
+            <![CDATA[买<font color="#e76e43">/卖</font>]]>
+        </Data>
+    </string>
+
+    <string name="high_light_info">%1$s\t 开：%2$s\t 高：%3$s\t 低：%4$s\t 收：%5$s</string>
+    <string name="sell_price">卖出价</string>
+    <string name="sell_quantity">卖出量</string>
+    <string name="sell">卖</string>
+    <string name="buy">买</string>
+    <string name="buy_and_sell">买/卖</string>
+    <string name="buy_price">买入价</string>
+    <string name="buy_quantity">买入量</string>
+    <string name="buy_newg">买入\t NEWG</string>
+    <string name="sell_newg">卖出\t NEWG</string>
+    <string name="cancel">取消</string>
+    <string name="time">时间</string>
+
+    <string name="entrust_price">委托价</string>
+    <string name="entrust_quantity">委托量</string>
+    <string name="traded_quantity">成交量</string>
+    <string name="traded">已成交</string>
+    <string name="operate">操作</string>
+    <string name="quantity">数量</string>
+    <string name="current_entrust">当前委托</string>
+    <string name="history_entrust">历史委托</string>
+    <string name="btc_s">%sBTC</string>
+    <string name="percent_s">%s%%</string>
+    <string name="available_btc">可用BTC</string>
+    <string name="buy_in">买入</string>
+    <string name="sell_out">卖出</string>
+
+    <string-array name="kline_type">
+        <item>5分钟</item>
+        <item>30分钟</item>
+        <item>1小时</item>
+        <item>1天</item>
+    </string-array>
+
+</resources>

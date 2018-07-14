@@ -134,8 +134,8 @@ public class WelcomeActivity extends BaseActivity {
         Observable 和  Observer
 
         1.onComplete and onError cant do together. just do one onComplete. just do one onError
-        2.onComplete or onError, Observer not receive event. but Observable will continue send if have event
-        3.Observer not receive event after dispose(Disposable), but Observable will continue send if have event
+        2.onComplete or onError, Observer not receive event. but Observable will continue Reverse if have event
+        3.Observer not receive event after dispose(Disposable), but Observable will continue Reverse if have event
         4.CompositeDisposable.add(Disposable)  CompositeDisposable.clear();
         5.map 时间转化   flatMap变化多个发送时间 (不保证顺序)  contactMap
         6.zip 合并事件 需要多个接口数据返回后组合 （按顺序组合）

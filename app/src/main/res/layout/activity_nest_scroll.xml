@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.smiledon.own.widgets.view.AnimView
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            <com.smiledon.own.widgets.NewGProgressBar
+                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_height="50dp"
+                android:padding="@dimen/x20"/>
+
+            <com.smiledon.library.view.BounceTextView
+                android:id="@+id/bounce_tv"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/x10"
+                android:layout_height="20dp" />
+
+            <com.smiledon.own.widgets.view.CommonEditText
+                android:layout_width="match_parent"
+                android:hint="CommonEditText"
+                android:layout_height="wrap_content"/>
+
+            <com.smiledon.own.widgets.view.CommonEditLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+
+    </android.support.v4.widget.NestedScrollView>
+</layout>

@@ -1,1 +1,1 @@
-include ':app', ':smiledonlibrary'
+include ':app', ':smiledonlibrary', ':lib', ':testlibrary', ':market', ':MPChartLib'

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/overlay_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>
+
+        <com.smiledon.own.widgets.view.SmallLoveAnimKotlinView
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false">
+
+            <com.smiledon.own.widgets.view.BezierAnimView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.smiledon.own.widgets.view.WaveView
+                    android:id="@+id/top_wave_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:waveFillType="top"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_margin="@dimen/x10"
+                    android:orientation="horizontal">
+
+                    <com.smiledon.own.widgets.view.LoadingCircleView
+                        android:id="@+id/load_view"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.0"
+                        android:layout_height="match_parent" />
+
+                    <com.smiledon.own.widgets.view.LoadingCircleView
+                        android:id="@+id/load_ok_view"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.0"
+                        android:layout_height="match_parent" />
+
+                    <com.smiledon.own.widgets.view.LoadingCircleView
+                        android:id="@+id/load_error_view"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.0"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="@dimen/x10">
+
+                    <com.smiledon.own.widgets.view.LoadingRompView
+                        android:id="@+id/loading_romp_view"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"/>
+
+                    <com.smiledon.own.widgets.view.SubmitButton
+                        android:id="@+id/submit_btn"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+
+                <com.smiledon.own.widgets.view.WaveView
+                    android:id="@+id/bottom_wave_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:waveFillType="bottom"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/switch_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="切换颜色"
+                android:padding="@dimen/x15"/>
+
+        </com.smiledon.own.widgets.view.SmallLoveAnimKotlinView>
+
+    </FrameLayout>
+
+</layout>

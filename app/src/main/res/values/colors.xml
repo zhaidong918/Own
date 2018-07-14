@@ -64,4 +64,7 @@
     <color name="key_board_pressed_ripple">#dddee1</color>
     <color name="key_board_pressed_color">#f8f8f9</color>
 
+
+    <color name="ui_market_bg">#25262f</color>
+
 </resources>

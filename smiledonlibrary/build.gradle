@@ -23,6 +23,9 @@ android {
     lintOptions {
         disable "ResourceType"
     }
+    dataBinding{
+        enabled = true
+    }
 }
 
 dependencies {

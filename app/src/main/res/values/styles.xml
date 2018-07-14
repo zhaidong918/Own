@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/background_layout</item>
+        <item name="colorPrimary">@color/txt_black</item>
+        <item name="colorPrimaryDark">@color/txt_black</item>
         <item name="colorAccent">@color/txt_black</item>
         <item name="android:textColorPrimary">@color/txt_black</item>
         <item name="android:navigationBarColor">@color/white</item>
@@ -300,6 +300,10 @@
         <item name="colorButtonNormal">#3646f4</item>
     </style>
 
+    <style name="GoldButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/gold_color</item>
+    </style>
+
     <style name="GrayButton" parent="Widget.AppCompat.Button.Borderless">
         <item name="colorButtonNormal">#a6a0a0</item>
     </style>
@@ -323,6 +327,11 @@
         <item name="colorControlActivated">#1b780a</item>
     </style>
 
+    <style name="GoldSelector">
+        <item name="colorControlNormal">@color/txt_gray</item>
+        <item name="colorControlActivated">@color/gold_color</item>
+    </style>
+
     <style name="tab_txt_style">
         <item name="android:textSize">@dimen/small_txt_size</item>
         <item name="android:textStyle">bold</item>
@@ -335,6 +344,27 @@
         <item name="android:overlapAnchor">false</item>
         <item name="android:textSize">14sp</item>
         <item name="android:layout_marginLeft">@dimen/small_margin</item>
+    </style>
+
+    <style name="wrap_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="kline_type_text_size">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="chart_top_btn_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:button">@color/transparent</item>
     </style>
 
 </resources>

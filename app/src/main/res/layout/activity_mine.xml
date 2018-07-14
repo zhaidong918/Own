@@ -34,7 +34,6 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/img_header"/>
-
                 </RelativeLayout>
 
             </android.support.design.widget.CollapsingToolbarLayout>
@@ -77,6 +76,49 @@
                         android:textColor="@color/white"
                         android:onClick="showPlan"
                         android:text="Plan"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:onClick="showAndroidSystemInfo"
+                        android:text="Android System"/>
+
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:onClick="rxJava"
+                        android:text="RxJava"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:onClick="showRecyclerView"
+                        android:text="RecyclerView"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:onClick="showWebSocket"
+                        android:text="WebSocket"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:onClick="showKline"
+                        android:text="Kline"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:onClick="showHouseLoan"
+                        android:text="HouseLoan"/>
 
                 </com.smiledon.library.view.FlowGroupView>
             </RelativeLayout>

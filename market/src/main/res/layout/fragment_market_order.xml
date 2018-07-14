@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:id="@+id/order_title_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:background="@drawable/bg_market"
+                    android:clipChildren="false">
+                    <!--顶部 左边布局-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5.0"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/wrap_text_style"
+                            android:text="@string/newg_btc"
+                            android:textSize="18sp"
+                            android:textColor="@color/white_color"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:padding="4dp">
+
+                            <TextView
+                                style="@style/wrap_text_style"
+                                android:textColor="@color/orange_color"
+                                android:layout_width="70dp"
+                                android:layout_centerVertical="true"
+                                android:textSize="12sp"
+                                android:text="@string/sell_price"/>
+
+                            <TextView
+                                style="@style/wrap_text_style"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/orange_color"
+                                android:layout_marginLeft="5dp"
+                                android:layout_centerVertical="true"
+                                android:textSize="12sp"
+                                android:text="@string/newg"/>
+
+                        </LinearLayout>
+
+                        <com.diting.market.widgets.view.NoScrollListView
+                            android:id="@+id/sell_price_list_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:dividerHeight="0dp"
+                            android:divider="@color/transparent"
+                            android:listSelector="@color/transparent"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:padding="4dp">
+
+                            <TextView
+                                style="@style/wrap_text_style"
+                                android:textColor="@color/blue_color"
+                                android:layout_width="70dp"
+                                android:layout_centerVertical="true"
+                                android:textSize="12sp"
+                                android:text="@string/buy_price"/>
+
+                            <TextView
+                                style="@style/wrap_text_style"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/blue_color"
+                                android:layout_marginLeft="5dp"
+                                android:layout_centerVertical="true"
+                                android:textSize="12sp"
+                                android:text="@string/newg"/>
+
+                        </LinearLayout>
+
+                        <com.diting.market.widgets.view.NoScrollListView
+                            android:id="@+id/buy_price_list_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:dividerHeight="0dp"
+                            android:divider="@color/transparent"
+                            android:listSelector="@color/transparent"/>
+
+                    </LinearLayout>
+
+                    <!--顶部 右边布局-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4.0"
+                        android:layout_marginRight="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/switch_order_type_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="46dp"
+                            android:text="买/卖"
+                            android:layout_marginRight="-5dp"
+                            android:layout_marginLeft="-5dp"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:background="@drawable/bg_normal_btn"
+                            android:textColor="@color/black_9"/>
+
+                        <EditText
+                            android:id="@+id/price_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="43dp"
+                            android:layout_marginTop="8dp"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/white_color"
+                            android:hint="买入价"
+                            android:maxLines="1"
+                            android:inputType="numberDecimal"
+                            android:background="@drawable/bg_blue_border"
+                            android:textColorHint="@color/black_9"/>
+
+                        <TextView
+                            android:id="@+id/cny_price_tv"
+                            style="@style/wrap_text_style"
+                            android:text="@string/chart_cny_price"
+                            android:layout_marginTop="5dp"
+                            android:layout_centerVertical="true"
+                            android:textSize="12sp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/black_9"/>
+
+                        <EditText
+                            android:id="@+id/quantity_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="43dp"
+                            android:layout_marginTop="5dp"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:maxLines="1"
+                            android:inputType="numberDecimal"
+                            android:background="@drawable/bg_blue_border"
+                            android:textColor="@color/white_color"
+                            android:hint="买入量"
+                            android:textColorHint="@color/black_9"/>
+
+                        <com.diting.market.widgets.view.NewGProgressBar
+                            android:id="@+id/progress_bar"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:layout_height="30dp"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/rate_tv"
+                                style="@style/wrap_text_style"
+                                android:textColor="@color/black_9"
+                                android:layout_centerVertical="true"
+                                android:textSize="11sp"
+                                android:text="0%"/>
+
+                            <TextView
+                                style="@style/wrap_text_style"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/black_9"
+                                android:layout_marginLeft="5dp"
+                                android:layout_centerVertical="true"
+                                android:textSize="11sp"
+                                android:text="--"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                style="@style/wrap_text_style"
+                                android:textColor="@color/black_9"
+                                android:layout_centerVertical="true"
+                                android:textSize="11sp"
+                                android:text="@string/available_btc"/>
+
+                            <TextView
+                                android:id="@+id/available_tv"
+                                style="@style/wrap_text_style"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/black_9"
+                                android:layout_marginLeft="5dp"
+                                android:layout_centerVertical="true"
+                                android:textSize="11sp"
+                                android:text="--"/>
+
+                        </RelativeLayout>
+
+                        <Button
+                            android:id="@+id/place_order_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/buy_newg"
+                            android:background="@drawable/bg_blue_body"
+                            android:textSize="15sp"
+                            android:textColor="@color/white_color"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/entrust_title_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="15dp"
+                    app:layout_collapseMode="pin"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_market">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/wrap_text_style"
+                            android:textColor="@color/white_color"
+                            android:layout_centerVertical="true"
+                            android:textSize="14sp"
+                            android:text="@string/current_entrust"/>
+
+                        <Button
+                            android:id="@+id/history_entrust_btn"
+                            style="@style/wrap_text_style"
+                            android:layout_alignParentRight="true"
+                            android:textColor="@color/black_9"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_centerVertical="true"
+                            android:background="@color/transparent"
+                            android:textSize="12sp"
+                            android:text="@string/history_entrust"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/wrap_text_style.small_white_singleLine"
+                            android:layout_width="30dp"
+                            android:text="@string/buy_and_sell"/>
+
+                        <TextView
+                            style="@style/wrap_text_style.small_white_singleLine"
+                            android:layout_width="70dp"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/entrust_price"/>
+
+                        <TextView
+                            style="@style/wrap_text_style.small_white_singleLine"
+                            android:layout_width="0dp"
+                            android:layout_weight="1.0"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/entrust_quantity"/>
+
+                        <TextView
+                            style="@style/wrap_text_style.small_white_singleLine"
+                            android:layout_width="0dp"
+                            android:layout_weight="1.0"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/traded"/>
+
+                        <TextView
+                            style="@style/wrap_text_style.small_white_singleLine"
+                            android:layout_width="60dp"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/operate"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/entrust_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

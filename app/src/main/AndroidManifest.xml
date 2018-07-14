@@ -14,6 +14,9 @@
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
 
     <!--允许程序设置内置sd卡的写权限-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -38,13 +41,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.smiledon.own.ui.activity.MainActivity">
+        <activity android:name="com.smiledon.own.ui.activity.BezierActivity"
+            android:configChanges="keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity android:name="com.smiledon.own.ui.activity.RecyclerViewActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.MapActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.LoginActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.WelcomeActivity"/>
@@ -52,10 +57,25 @@
             android:exported="true"/>
         <activity android:name="com.smiledon.own.ui.activity.RunRecordActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.WidgetActivity"/>
+        <activity android:name="com.smiledon.own.ui.activity.AndroidSystemActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.MineActivity"/>
+        <activity android:name="com.smiledon.own.ui.activity.RxJavaActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.OwnPlanActivity"/>
         <activity android:name="com.smiledon.own.ui.activity.EditPlanActivity"/>
-
+        <activity android:name="com.smiledon.own.ui.activity.MPChartTwoActivity"/>
+        <activity android:name=".ui.activity.WebSocketActivity" />
+        <activity android:name="com.smiledon.own.ui.activity.UiActivity"/>
+        <activity android:name="com.smiledon.own.ui.activity.MPChartActivity"/>
+        <activity android:name=".ui.activity.HouseLoanActivity"
+            android:configChanges="keyboardHidden"/>
+        <activity android:name=".ui.activity.HouseLoanDetailActivity"
+            android:screenOrientation="userLandscape"/>
+        <activity android:name=".ui.activity.HouseLoanDetailKotlinActivity"
+            android:screenOrientation="userLandscape"/>
+        <activity android:name=".ui.activity.HeapActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.NestScrollActivity" />
+        <activity android:name=".ui.activity.CircularRevealActivity" />
 
 
         <service android:name=".service.OwnService"/>

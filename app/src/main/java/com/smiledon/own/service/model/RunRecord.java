@@ -21,6 +21,8 @@ public class RunRecord extends DataSupport {
         this.run_time = run_time;
     }
 
+    public RunRecord() {}
+
     /** 开始时间  */
     public long start_time;
 

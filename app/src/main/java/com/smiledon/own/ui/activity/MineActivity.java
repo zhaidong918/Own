@@ -36,4 +36,28 @@ public class MineActivity extends BaseActivity {
     public void showPlan(View view) {
         startActivity(OwnPlanActivity.class);
     }
+
+    public void showAndroidSystemInfo(View view) {
+        startActivity(AndroidSystemActivity.class);
+    }
+
+    public void rxJava(View view) {
+        startActivity(RxJavaActivity.class);
+    }
+
+    public void showRecyclerView(View view) {
+        startActivity(RecyclerViewActivity.class);
+    }
+
+    public void showWebSocket(View view) {
+        startActivity(WebSocketActivity.class);
+    }
+
+    public void showKline(View view) {
+        startActivity(MPChartActivity.class);
+    }
+
+    public void showHouseLoan(View view) {
+        startActivity(HouseLoanActivity.class);
+    }
 }

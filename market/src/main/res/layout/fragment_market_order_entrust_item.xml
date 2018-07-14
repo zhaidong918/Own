@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_order_type_tv"
+            style="@style/wrap_text_style.small_white_singleLine"
+            android:layout_width="30dp"
+            android:text="买"/>
+
+        <TextView
+            android:id="@+id/item_entrust_price_tv"
+            style="@style/wrap_text_style.small_white_singleLine"
+            android:layout_width="70dp"
+            android:layout_marginLeft="10dp"
+            android:text="0.00000235"/>
+
+        <TextView
+            android:id="@+id/item_entrust_quantity_tv"
+            style="@style/wrap_text_style.small_white_singleLine"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="10dp"
+            android:text="11111111"/>
+
+        <TextView
+            android:id="@+id/item_traded_quantity_tv"
+            style="@style/wrap_text_style.small_white_singleLine"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="10dp"
+            android:text="9527"/>
+
+        <TextView
+            android:id="@+id/item_cancel_btn"
+            style="@style/wrap_text_style.small_white_singleLine"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/bg_orange_border"
+            android:text="@string/cancel"/>
+
+    </LinearLayout>
+</layout>

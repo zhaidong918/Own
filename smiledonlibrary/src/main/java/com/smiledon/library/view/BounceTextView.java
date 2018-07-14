@@ -1,5 +1,7 @@
 package com.smiledon.library.view;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -10,6 +12,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.text.NumberFormat;
+
 /**
  * 数字从0 变化到目标数字
  * Created by zhaidong on 2017/9/15.
@@ -18,10 +22,7 @@ import android.view.View;
 public class BounceTextView extends View {
 
     private Paint mPaint;
-    private int viewHeight = 200;
-
-    private float tv=0;
-    private long duration = 50;
+    private int mHeight;
 
     public BounceTextView(Context context) {
         this(context, null);
@@ -40,44 +41,71 @@ public class BounceTextView extends View {
         mPaint = new Paint();
         mPaint.setColor(Color.BLACK);
         mPaint.setAntiAlias(true);
-        mPaint.setStrokeWidth(5);
+        mPaint.setTextSize(40f);
+
+        numberFormat = NumberFormat.getInstance();
+        numberFormat.setGroupingUsed(false);
     }
+
+    NumberFormat numberFormat;
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        heightMeasureSpec = MeasureSpec.makeMeasureSpec(viewHeight, MeasureSpec.getMode(heightMeasureSpec));
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        mHeight = getMeasuredHeight();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-
-        canvas.drawText(String.valueOf(curTv), 0, viewHeight/2, mPaint);
-
         super.onDraw(canvas);
+
+        canvas.drawText(numberFormat.format(number), 0, mHeight/2, mPaint);
     }
 
-    private Handler mHandler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
+    float number = 0;
+    ValueAnimator valueAnimator;
 
-            curTv += onceAddTv;
-            if(curTv >= tv)
-                curTv = tv;
-            else
-                mHandler.sendEmptyMessageDelayed(0, 1);
-            invalidate();
+    public void setText(float f) {
+
+        if (valueAnimator == null) {
+            valueAnimator = ValueAnimator.ofFloat(number, f);
+            valueAnimator.setDuration(3000);
         }
-    };
+        else{
+            valueAnimator.cancel();
+            valueAnimator.setFloatValues(number, f);
+        }
+        valueAnimator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
 
-    private float curTv= 0;
-    private float onceAddTv;
+            }
 
-    public void bounceTv(String text) {
-        tv = Float.parseFloat(text);
-        onceAddTv = tv/duration;
+            @Override
+            public void onAnimationEnd(Animator animation) {
 
-        mHandler.sendEmptyMessageDelayed(0, 20);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                number = (float) animation.getAnimatedValue();
+                invalidate();
+            }
+        });
+        valueAnimator.start();
+
     }
 
 }

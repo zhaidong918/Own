@@ -41,7 +41,8 @@ public class LogUtil {
                 break;
             }
         }
-        LOG_LEVEL = logLevel;
+//        LOG_LEVEL = logLevel;
+        LOG_LEVEL = Log.VERBOSE;
     }
 
     /**

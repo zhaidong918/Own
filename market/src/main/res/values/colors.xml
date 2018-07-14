@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="black_9">#999999</color>
+    <color name="black_6">#666666</color>
+    <color name="background">#25262f</color>
+    <color name="gold_color">#F7E5C6</color>
+    <color name="line_color">#4a4a4a</color>
+
+    <color name="blue_color">#24f694</color>
+    <!--主色作为按钮色太亮-->
+    <color name="blue_btn_color">#03c086</color>
+    <color name="white_color">#ffffff</color>
+    <color name="orange_color">#e76e43</color>
+
+    <color name="high_light_color">#989899</color>
+    <color name="line_grid_color">#3b3c46</color>
+
+    <color name="chart_btn_color">#3b3c46</color>
+
+    <color name="progress_color">#25262e</color>
+    <color name="btn_color">#25262e</color>
+
+
+    <color name="transparent">@android:color/transparent</color>
+</resources>

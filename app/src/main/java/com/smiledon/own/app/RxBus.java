@@ -1,7 +1,5 @@
 package com.smiledon.own.app;
 
-import com.amap.api.location.AMapLocation;
-
 import java.util.HashMap;
 
 import io.reactivex.BackpressureStrategy;

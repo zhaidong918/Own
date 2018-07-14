@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_market">
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentInsetStart="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        style="@style/wrap_text_style"
+                        android:text="@string/newg"
+                        android:textSize="20sp"
+                        android:textColor="@color/white_color"/>
+
+                    <TextView
+                        style="@style/wrap_text_style"
+                        android:text="@string/newg_btc"
+                        android:textSize="16sp"
+                        android:layout_marginTop="-3dp"
+                        android:textColor="@color/black_9"/>
+
+                    <TextView
+                        android:id="@+id/price_tv"
+                        style="@style/wrap_text_style"
+                        android:text="0.125545455154"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textSize="32sp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/white_color"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp">
+
+                        <TextView
+                            android:id="@+id/cny_price_tv"
+                            style="@style/wrap_text_style"
+                            android:text="@string/chart_cny_price"
+                            android:layout_centerVertical="true"
+                            android:textSize="16sp"
+                            android:textColor="@color/black_9"/>
+
+                        <CheckedTextView
+                            android:id="@+id/price_trend_tv"
+                            style="@style/wrap_text_style"
+                            android:text="-0.94%"
+                            android:layout_centerVertical="true"
+                            android:textSize="16sp"
+                            android:gravity="center_vertical"
+                            android:drawableLeft="@drawable/icon_price_trend_selector"
+                            android:layout_alignParentRight="true"
+                            android:drawablePadding="10dp"
+                            android:textColor="@drawable/tv_orange_blue_selector"/>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/max_price_tv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:text="@string/max_price_s"
+                            android:textColor="@color/black_9"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/min_price_tv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:textColor="@color/black_9"
+                            android:textSize="11sp"
+                            android:text="@string/min_price_s"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/today_open_price_tv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:text="@string/today_open_price_s"
+                            android:textColor="@color/black_9"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/volume_tv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:textColor="@color/black_9"
+                            android:textSize="11sp"
+                            android:text="@string/one_day_volume_s"/>
+                    </LinearLayout>
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/tab_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        app:tabMode="fixed"
+                        app:tabTextAppearance="@style/kline_type_text_size"
+                        android:layout_marginTop="8dp"
+                        app:tabSelectedTextColor="@color/white_color"
+                        app:tabTextColor="@color/black_9"
+                        app:tabIndicatorHeight="1dp"
+                        app:tabIndicatorColor="@color/white_color">
+
+                    </android.support.design.widget.TabLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:background="@color/background">
+
+            <TextView
+                android:id="@+id/high_light_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_9"
+                android:layout_marginLeft="5dp"
+                android:textSize="9sp"/>
+
+            <com.diting.market.widgets.view.NewGCandleStickChart
+                android:id="@+id/chart_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
+

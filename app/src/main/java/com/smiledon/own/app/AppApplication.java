@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 
 import com.smiledon.own.utils.LogUtil;
+import com.squareup.leakcanary.LeakCanary;
 
 import org.litepal.LitePalApplication;
 
@@ -13,7 +14,7 @@ import org.litepal.LitePalApplication;
  * @date 2018/1/3 9:48
  */
 
-    public class AppApplication extends LitePalApplication {
+public class AppApplication extends LitePalApplication {
 
     protected static Context sContext;
     protected static Handler sHandler;
@@ -27,12 +28,20 @@ import org.litepal.LitePalApplication;
     @Override
     public void onCreate() {
         super.onCreate();
+
+        if(LeakCanary.isInAnalyzerProcess(this)){
+            return;
+        }
+        LeakCanary.install(this);
+
+
         sApp = this;
         sContext = getApplicationContext();
         sHandler = new Handler();
         sMainThreadId = android.os.Process.myTid();
 
         LogUtil.init();
+
 
     }
 

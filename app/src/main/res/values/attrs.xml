@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WaveView">
+
+        <attr name="waveFillType" format="enum">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+        </attr>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="LoadingCircleView">
+
+        <attr name="default_circle_color" format="color"/>
+        <attr name="loading_arc_color" format="color" />
+        <attr name="circle_width" format="dimension" />
+        <attr name="loading_ok_color" format="color" />
+        <attr name="loading_error_color" format="color" />
+
+    </declare-styleable>
+
+</resources>

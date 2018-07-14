@@ -48,6 +48,10 @@ public class AndroidSystemInfo extends DataSupport implements Serializable{
         this.version_number = version_number;
     }
 
+    public void setVersionNumber(String version_number) {
+        this.version_number = "API Level " + version_number;
+    }
+
     public String getVersion() {
         return version;
     }

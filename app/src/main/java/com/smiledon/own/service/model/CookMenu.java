@@ -35,4 +35,5 @@ public class CookMenu {
     public JSONObject recipe;
     public String thumbnail;
 
+
 }

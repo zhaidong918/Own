@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#303139</color>
+    <color name="line">#3b3c46</color>
+
+
+    <color name="increase_color">#e56d43</color>
+    <color name="decrease_color">#03be86</color>
+
+
+    <color name="label_color">#ededee</color>
+
+    <color name="highlight_color">#989899</color>
+
+
+
+</resources>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.smiledon.own.ui.activity.RecyclerViewActivity.Handler"/>
+
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/test_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/xx_small_margin"
+                    android:onClick="@{handler.onClick}"
+                    android:text="Index"/>
+
+                <Button
+                    android:id="@+id/old_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/xx_small_margin"
+                    android:onClick="@{handler.onClick}"
+                    android:text="老数据"/>
+
+                <Button
+                    android:id="@+id/new_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/xx_small_margin"
+                    android:onClick="@{handler.onClick}"
+                    android:text="新数据"/>
+
+                <Button
+                    android:id="@+id/update_diff_old_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/xx_small_margin"
+                    android:onClick="@{handler.onClick}"
+                    android:text="Diff Old"/>
+
+                <Button
+                    android:id="@+id/update_diff_new_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/xx_small_margin"
+                    android:onClick="@{handler.onClick}"
+                    android:text="Diff New"/>
+
+                <Button
+                    android:id="@+id/update_item_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/xx_small_margin"
+                    android:onClick="@{handler.onClick}"
+                    android:text="更新item"/>
+
+                <Button
+                    android:id="@+id/update_item_content_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/xx_small_margin"
+                    android:onClick="@{handler.onClick}"
+                    android:text="更新item文本"/>
+
+                <Button
+                    android:id="@+id/update_part_item_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/xx_small_margin"
+                    android:onClick="@{handler.onClick}"
+                    android:text="更新部分item"/>
+
+                <Button
+                    android:id="@+id/update_part_item_content_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/xx_small_margin"
+                    android:onClick="@{handler.onClick}"
+                    android:text="更新部分item文本"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+
+</layout>
